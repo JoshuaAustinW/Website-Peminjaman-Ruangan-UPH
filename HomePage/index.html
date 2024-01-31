@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peminjaman Ruangan</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="Style.css">
+
+    <script src="https://kit.fontawesome.com/0020352476.js" crossorigin="anonymous"></script>
+
+</head>
+<body>
+
+    <script src="fungsi.js"></script>
+
+    <div id="MenuBox">
+        <div id="MasterMenu">
+            <a class="HyperlinkHome" href="" target="_blank">
+                <div class="TextMaster"> <i class="fa-solid fa-house" id="iconhomemenu"></i> <h3 class="MenuText">Home</h3> </div>
+            </a>
+        </div>
+    </div>
+
+    <div id="BoxList">
+
+        <a href="https://www.uph.edu/id/" target="_blank" id="uphedu"><img id="Logo" src="img/UPH_LOGO_Color.png" alt="UPH Logo"></a>
+        
+        <select id="SelectBuilding">
+            <option>Lippo Campus</option>
+            <option>Aryaduta Campus</option>
+        </select>
+
+    </div>
+    
+<Header>
+
+    <div id="BoxTitle">
+            <i class="fa-solid fa-bars" onclick="ShowMenu(this)" id="menubar"></i>
+            <div id="Title">Web Peminjaman Ruangan</div>
+            <i class="fa-solid fa-house" id="HomeIcon"></i>
+            <i class="fa-solid fa-user" onmouseenter="GantiIcon(this)" onmouseleave="GantiIcon2(this)" id="UserIcon"></i>
+    </div>
+
+</Header>
+
+    <div id="BGimgcontainer"><img id="imgcampus" src="img/campus-medan.jpeg" alt="UPH_campus.jpeg"></div>
+
+    <div id="BoxSearch">
+
+        <div>
+            <input id="SearchBar" type="text" placeholder="Search for a room">
+            <button type="button" id="ButtonSearch">
+                <i class="fa-solid fa-magnifying-glass" id="MagnifyingGlass"></i>  
+            </button>
+        </div>
+
+    </div>
+
+    <div class="SelectRoom">
+
+        <i class="fa-solid fa-arrow-left Arrow"></i>
+
+        <div class="ButtonRoom">
+            <div class="RoomText"><h1 align="center" class="RoomText1" id="txt0">ROOM-5XX</h1></div>
+            <div class="ImgContainer"><img id="img0" class="RoomImage" src="img/CompLab.png" alt="classroom Img"></div>
+
+            <div class="WhiteBoxInRoomSelection">
+                <div class="ButtonPinjam">Pinjam</div>
+                <div class="ButtonDetails">Details</div>
+            </div>
+        </div>
+
+        <div class="ButtonRoom">
+            <div class="RoomText"><h1 align="center" class="RoomText1" id="txt1">ROOM-5XX</h1></div>
+            <div class="ImgContainer"><img id="img1" class="RoomImage" src="img/CompLab.png" alt="classroom Img"></div>
+
+            <div class="WhiteBoxInRoomSelection">
+                <div class="ButtonPinjam">Pinjam</div>
+                <div class="ButtonDetails">Details</div>
+            </div>
+        </div>
+
+        <div class="ButtonRoom">
+            <div class="RoomText"><h1 align="center" class="RoomText1" id="txt2">ROOM-5XX</h1></div>
+            <div class="ImgContainer"><img id="img2" class="RoomImage" src="img/CompLab.png" alt="classroom Img"></div>
+
+            <div class="WhiteBoxInRoomSelection">
+                <div class="ButtonPinjam">Pinjam</div>
+                <div class="ButtonDetails">Details</div>
+            </div>
+        </div>
+
+        <i class="fa-solid fa-arrow-right Arrow"></i>
+
+    </div>
+
+</body>
+</html>
