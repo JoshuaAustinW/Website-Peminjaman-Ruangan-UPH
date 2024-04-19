@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,20 +20,29 @@
     <script src="fungsi.js"></script>
 
     <div id="MenuBox">
+
         <div id="MasterMenu">
-            <a class="HyperlinkHome" href="" target="_blank">
+
+            <a class="HyperlinkHome" href="" target="">
                 <div class="TextMaster"> <i class="fa-solid fa-house" id="iconhomemenu"></i> <h3 class="MenuText">Home</h3> </div>
             </a>
+
+            <a class="HyperlinkMyReserve" href="../MyReservePage/MyReserve.html" target="">
+                <div class="TextMaster"> <h3 class="MenuText">My Reservations</h3> </div>
+            </a>
+
         </div>
+
     </div>
 
     <div id="BoxList">
 
-        <a href="https://www.uph.edu/id/" target="_blank" id="uphedu"><img id="Logo" src="img/UPH_LOGO_Color.png" alt="UPH Logo"></a>
+        <a href="https://www.uph.edu/id/" target="_blank" id="uphedu"><img id="Logo" src="../res/img/UPH_LOGO_Color.png" alt="UPH Logo"></a>
         
         <select id="SelectBuilding">
-            <option>Lippo Campus</option>
-            <option>Aryaduta Campus</option>
+            <option value="All">All</option>
+            <option value="Lippo">Lippo Campus</option>
+            <option value="AryaDuta">Aryaduta Campus</option>
         </select>
 
     </div>
@@ -43,32 +52,39 @@
     <div id="BoxTitle">
             <i class="fa-solid fa-bars" onclick="ShowMenu(this)" id="menubar"></i>
             <div id="Title">Web Peminjaman Ruangan</div>
-            <i class="fa-solid fa-house" id="HomeIcon"></i>
-            <i class="fa-solid fa-user" onmouseenter="GantiIcon(this)" onmouseleave="GantiIcon2(this)" id="UserIcon"></i>
+            <a class="homebut" href=""><i class="fa-solid fa-house" id="HomeIcon"></i></a>
+            <a class="userbut" href=""><i class="fa-solid fa-user" onmouseenter="GantiIcon(this)" onmouseleave="GantiIcon2(this)" id="UserIcon"></i></a>
     </div>
 
 </Header>
 
-    <div id="BGimgcontainer"><img id="imgcampus" src="img/campus-medan.jpeg" alt="UPH_campus.jpeg"></div>
+    <div id="BGimgcontainer"><img id="imgcampus" src="../res/img/campus-medan.jpeg" alt="UPH_campus.jpeg"></div>
 
     <div id="BoxSearch">
 
-        <div>
-            <input id="SearchBar" type="text" placeholder="Search for a room">
-            <button type="button" id="ButtonSearch">
-                <i class="fa-solid fa-magnifying-glass" id="MagnifyingGlass"></i>  
-            </button>
+        <div class="TitleList">
+            <h1 class="RoomList" align="center">Room List</h1>
         </div>
 
     </div>
 
     <div class="SelectRoom">
 
-        <i class="fa-solid fa-arrow-left Arrow"></i>
+        <div class="BackArrow"><i class="fa-solid fa-arrow-left Arrow"></i></div>
 
         <div class="ButtonRoom">
-            <div class="RoomText"><h1 align="center" class="RoomText1" id="txt0">ROOM-5XX</h1></div>
-            <div class="ImgContainer"><img id="img0" class="RoomImage" src="img/CompLab.png" alt="classroom Img"></div>
+            <div class="RoomText"><h1 align="center" id="txt0">ROOM-5XX</h1></div>
+            <div class="ImgContainer"><img id="img0" class="RoomImage" src="../res/img/CompLab.png" alt="classroom Img"></div>
+
+            <div class="WhiteBoxInRoomSelection">
+                <div class="ButtonPinjam" onclick="ButtonPinjam1()">Pinjam</div>
+                <div class="ButtonDetails">Details</div>
+            </div>
+        </div>
+
+        <div class="ButtonRoom">
+            <div class="RoomText"><h1 align="center" id="txt1">ROOM-5XX</h1></div>
+            <div class="ImgContainer"><img id="img1" class="RoomImage" src="../res/img/CompLab.png" alt="classroom Img"></div>
 
             <div class="WhiteBoxInRoomSelection">
                 <div class="ButtonPinjam">Pinjam</div>
@@ -77,8 +93,8 @@
         </div>
 
         <div class="ButtonRoom">
-            <div class="RoomText"><h1 align="center" class="RoomText1" id="txt1">ROOM-5XX</h1></div>
-            <div class="ImgContainer"><img id="img1" class="RoomImage" src="img/CompLab.png" alt="classroom Img"></div>
+            <div class="RoomText"><h1 align="center" id="txt2">ROOM-5XX</h1></div>
+            <div class="ImgContainer"><img id="img2" class="RoomImage" src="../res/img/CompLab.png" alt="classroom Img"></div>
 
             <div class="WhiteBoxInRoomSelection">
                 <div class="ButtonPinjam">Pinjam</div>
@@ -86,19 +102,45 @@
             </div>
         </div>
 
-        <div class="ButtonRoom">
-            <div class="RoomText"><h1 align="center" class="RoomText1" id="txt2">ROOM-5XX</h1></div>
-            <div class="ImgContainer"><img id="img2" class="RoomImage" src="img/CompLab.png" alt="classroom Img"></div>
-
-            <div class="WhiteBoxInRoomSelection">
-                <div class="ButtonPinjam">Pinjam</div>
-                <div class="ButtonDetails">Details</div>
-            </div>
-        </div>
-
-        <i class="fa-solid fa-arrow-right Arrow"></i>
+        <div class="ForwardArrow"><i class="fa-solid fa-arrow-right Arrow"></i></div>
 
     </div>
+
+
+
+    <div class="PopupPinjam" id="PopupBG"></div>
+
+        <div class="FormPinjam" id="FormPinjam">
+            <div class="ButtonRoomForm">
+                <div class="RoomText"><h1 align="center" id="txt2">ROOM-5XX</h1></div>
+                <div class="ImgContainerForm"><img id="img2" class="RoomImageForm" src="../res/img/CompLab.png" alt="classroom Img"></div>
+            </div>
+
+            <div class="inputPinjam">
+                <h1 class="FormTitle">Form Peminjaman Ruangan</h1>
+                <br>
+                <form>
+                    <label class="labelInput" for="StartTime">Start Time: </label><input type="time" class="inputTime" name="StartTime" id="StartTime">
+                    <br><br>
+                    <label class="labelInput" for="EndTime">End Time: </label><input type="time" class="inputTime" name="EndTime" id="EndTime">
+                    <br><br>    
+                    <label class="labelInput" for="inputDate">Date: </label><input type="date" class="inputDate" name="inputDate" id="inputDate">
+                    <br><br>
+                    <label class="labelInput" for="Description">Description: </label>
+                    <br>
+                    <textarea name="Description" id="Description" class="Description" rows="4"></textarea>
+                    <br><br>
+                    <input type="submit" class="submitButton" value="Submit">
+                </form>
+            </div>
+
+            <i class="fa-solid fa-xmark" id="xbutton" onclick="ClosePopupPinjam()"></i>
+
+        </div>
+
+
+
+        <div style="font-size: 200px; z-index: 18; position: fixed;" id="data"></div>
 
 </body>
 </html>
