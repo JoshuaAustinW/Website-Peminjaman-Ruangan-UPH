@@ -22,6 +22,6 @@ function validateEmail() {
         emailError.innerHTML = '';
         // Generate OTP
         var randomCode = generateRandomCode();
-        window.location.href="../HomePage/index.html";
+        window.location.href="../HomePage/index.php";
     }
   }
