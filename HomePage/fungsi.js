@@ -1,4 +1,4 @@
-
+//Halo
 function ShowMenu() {
     let popUpElement = document.getElementById('MenuBox');
             if (popUpElement.style.display === 'none' || popUpElement.style.display === '') {
