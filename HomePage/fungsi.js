@@ -68,13 +68,22 @@ let GantiIcon2 = function(a) {
 
 function ClosePopupPinjam(){
     let popupmenu = document.getElementById('FormPinjam');
+    let popupmenu2 = document.getElementById('FormDetails');
     let popupbg = document.getElementById('PopupBG');
     popupmenu.style.display = 'none';
+    popupmenu2.style.display = 'none';
     popupbg.style.display = 'none';
 }
 
 function OpenPopupPinjam(){
     let popupmenu = document.getElementById('FormPinjam');
+    let popupbg = document.getElementById('PopupBG');
+    popupmenu.style.display = 'flex';
+    popupbg.style.display = 'block';
+}
+
+function OpenPopupDetails(){
+    let popupmenu = document.getElementById('FormDetails');
     let popupbg = document.getElementById('PopupBG');
     popupmenu.style.display = 'flex';
     popupbg.style.display = 'block';
@@ -94,3 +103,49 @@ function ButtonPinjam3(){
     document.getElementById('txtPopup').innerHTML = document.getElementById('txt2').innerHTML;
     OpenPopupPinjam();
 }
+
+function ButtonDetails1(){
+    let nomorruangan = document.getElementById('txt0').innerHTML;
+    let IndexRuanganTerpilih = filteredRuangan.findIndex(room => room.number === nomorruangan.replace("ROOM-",""));
+    let tiperuangan = filteredRuangan[IndexRuanganTerpilih].type;
+    let kapasitasruangan = filteredRuangan[IndexRuanganTerpilih].capacity;
+    let lokasiruangan = filteredRuangan[IndexRuanganTerpilih].location;
+
+    document.getElementById('txtPopupDetails').innerHTML = nomorruangan;
+    document.getElementById('Nomor').innerHTML = "Nomor Ruangan: " + nomorruangan.replace("ROOM-","");
+    document.getElementById('Tipe').innerHTML = "Tipe Ruangan: " + tiperuangan;
+    document.getElementById('Kapasitas').innerHTML = "Kapasitas Ruangan: " + kapasitasruangan;
+    document.getElementById('Lokasi').innerHTML = "Lokasi Ruangan: " + lokasiruangan;
+    OpenPopupDetails();
+}
+
+function ButtonDetails2(){
+    let nomorruangan = document.getElementById('txt1').innerHTML;
+    let IndexRuanganTerpilih = filteredRuangan.findIndex(room => room.number === nomorruangan.replace("ROOM-",""));
+    let tiperuangan = filteredRuangan[IndexRuanganTerpilih].type;
+    let kapasitasruangan = filteredRuangan[IndexRuanganTerpilih].capacity;
+    let lokasiruangan = filteredRuangan[IndexRuanganTerpilih].location;
+
+    document.getElementById('txtPopupDetails').innerHTML = nomorruangan;
+    document.getElementById('Nomor').innerHTML = "Nomor Ruangan: " + nomorruangan.replace("ROOM-","");
+    document.getElementById('Tipe').innerHTML = "Tipe Ruangan: " + tiperuangan;
+    document.getElementById('Kapasitas').innerHTML = "Kapasitas Ruangan: " + kapasitasruangan;
+    document.getElementById('Lokasi').innerHTML = "Lokasi Ruangan: " + lokasiruangan;
+    OpenPopupDetails();
+}
+
+function ButtonDetails3(){
+    let nomorruangan = document.getElementById('txt2').innerHTML;
+    let IndexRuanganTerpilih = filteredRuangan.findIndex(room => room.number === nomorruangan.replace("ROOM-",""));
+    let tiperuangan = filteredRuangan[IndexRuanganTerpilih].type;
+    let kapasitasruangan = filteredRuangan[IndexRuanganTerpilih].capacity;
+    let lokasiruangan = filteredRuangan[IndexRuanganTerpilih].location;
+
+    document.getElementById('txtPopupDetails').innerHTML = nomorruangan;
+    document.getElementById('Nomor').innerHTML = "Nomor Ruangan: " + nomorruangan.replace("ROOM-","");
+    document.getElementById('Tipe').innerHTML = "Tipe Ruangan: " + tiperuangan;
+    document.getElementById('Kapasitas').innerHTML = "Kapasitas Ruangan: " + kapasitasruangan;
+    document.getElementById('Lokasi').innerHTML = "Lokasi Ruangan: " + lokasiruangan;
+    OpenPopupDetails();
+}
+

@@ -78,7 +78,7 @@
 
             <div class="WhiteBoxInRoomSelection">
                 <div class="ButtonPinjam" onclick="ButtonPinjam1()">Pinjam</div>
-                <div class="ButtonDetails">Details</div>
+                <div class="ButtonDetails" onclick="ButtonDetails1()">Details</div>
             </div>
         </div>
 
@@ -88,7 +88,7 @@
 
             <div class="WhiteBoxInRoomSelection">
                 <div class="ButtonPinjam" onclick="ButtonPinjam2()">Pinjam</div>
-                <div class="ButtonDetails">Details</div>
+                <div class="ButtonDetails" onclick="ButtonDetails2()">Details</div>
             </div>
         </div>
 
@@ -98,7 +98,7 @@
 
             <div class="WhiteBoxInRoomSelection">
                 <div class="ButtonPinjam" onclick="ButtonPinjam3()">Pinjam</div>
-                <div class="ButtonDetails">Details</div>
+                <div class="ButtonDetails" onclick="ButtonDetails3()">Details</div>
             </div>
         </div>
 
@@ -138,7 +138,27 @@
 
         </div>
 
+        <div class="FormDetails" id="FormDetails">
+            <div class="ButtonRoomForm">
+                <div class="RoomText"><h1 align="center" id="txtPopupDetails">ROOM-5XX</h1></div>
+                <div class="ImgContainerForm"><img id="img2" class="RoomImageForm" src="../res/img/CompLab.png" alt="classroom Img"></div>
+            </div>
+            
+            <div class="inputPinjam">
+                <h1 class="FormTitle">Detail Ruangan</h1>
+                <br>
+                <label class="labelInput" id="Nomor">Nomor Ruangan: </label>
+                <br><br>
+                <label class="labelInput" id="Tipe">Tipe Ruangan: </label>
+                <br><br>
+                <label class="labelInput" id="Kapasitas">Kapasitas Ruangan: </label>
+                <br><br>
+                <label class="labelInput" id="Lokasi">Lokasi Ruangan: </label>
+            </div>
 
+            <i class="fa-solid fa-xmark" id="xbutton" onclick="ClosePopupPinjam()"></i>
+
+        </div>
 
 <?php
     $servername = "localhost"; 
