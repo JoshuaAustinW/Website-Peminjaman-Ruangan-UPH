@@ -400,7 +400,7 @@ body {
 
 .submitButton{
     width: 100%;
-    padding: 3%;
+    padding: 2%;
 }
 
 .submitButton:hover{
@@ -497,6 +497,10 @@ body {
         width: 90%;
     }
 
+    .FormDetails{
+        width: 90%;
+    }
+
     .labelInput{
         font-size: 15px;
     }
@@ -520,6 +524,11 @@ body {
         align-items: center;
     }
 
+    .FormDetails{
+        flex-direction: column;
+        align-items: center;
+    }
+
     .ButtonRoomForm{
         left: 0;
         transform: translateX(0%);
@@ -534,6 +543,14 @@ body {
         justify-content: center;
         top: 42%;
         left: -8%;
+    }
+
+    .labelInput{
+        font-size: 12px;
+    }
+
+    .FormTitle{
+        font-size: 14px;
     }
 }
 
@@ -612,6 +629,11 @@ body {
         height: 80%;
     }
 
+    .FormDetails{
+        width: 90%;
+        height: 80%;
+    }
+
 }
 
 @media only screen and (min-width: 1540px) {
@@ -641,6 +663,12 @@ body {
     }
 
     .FormPinjam{
+        width: 92%;
+        height: 92%;
+        border-width: 0;
+    }
+
+    .FormDetails{
         width: 92%;
         height: 92%;
         border-width: 0;

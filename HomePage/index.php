@@ -118,7 +118,6 @@
 
             <div class="inputPinjam">
                 <h1 class="FormTitle">Form Peminjaman Ruangan</h1>
-                <br>
                 <form>
                     <label class="labelInput" for="StartTime">Start Time: </label><input type="time" class="inputTime" name="StartTime" id="StartTime">
                     <br><br>
