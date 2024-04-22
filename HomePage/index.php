@@ -118,20 +118,20 @@
 
             <div class="inputPinjam">
                 <h1 class="FormTitle">Form Peminjaman Ruangan</h1>
-                <form method="post">
-                    <label class="labelInput" for="Room">Room Number:</label><input type="text" class="inputRoom" name="Room" id="Room" readonly>
+                <form method="POST">
+                    <label class="labelInput" for="Room">Room Number: </label><input style="width: 15%;" type="text" class="inputRoom" name="Room" id="Room" readonly>
                     <br><br>
-                    <label class="labelInput" for="StartTime">Start Time: </label><input type="time" class="inputTime" name="StartTime" id="StartTime">
+                    <label class="labelInput" for="StartTime">Start Time: </label><input type="time" class="inputTime" name="StartTime" id="StartTime" required>
                     <br><br>
-                    <label class="labelInput" for="EndTime">End Time: </label><input type="time" class="inputTime" name="EndTime" id="EndTime">
+                    <label class="labelInput" for="EndTime">End Time: </label><input type="time" class="inputTime" name="EndTime" id="EndTime" required>
                     <br><br>    
-                    <label class="labelInput" for="inputDate">Date: </label><input type="date" class="inputDate" name="inputDate" id="inputDate">
+                    <label class="labelInput" for="inputDate">Date: </label><input type="date" class="inputDate" name="inputDate" id="inputDate" required>
                     <br><br>
                     <label class="labelInput" for="Description">Description: </label>
                     <br>
                     <textarea name="Description" id="Description" class="Description" rows="4"></textarea>
                     <br><br>
-                    <input type="submit" class="submitButton" value="Submit" onclick="SubmitForm()">
+                    <input type="submit" class="submitButton" value="Submit" onclick="">
                 </form>
             </div>
 
@@ -198,10 +198,56 @@
         echo "<script>var semuaRuangan = $semua_ruangan_json;</script>";
 
     }
-    
+
+
     $conn->close();
 
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+
+
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {           //ERROR
+        // Get form data
+        $startTime = $_POST['StartTime'];
+        $endTime = $_POST['EndTime'];
+        $date = $_POST['inputDate'];
+        $description = $_POST['Description']; 
+        $room = $_POST['Room'];
+
+        // Your MySQL server credentials
+        $servername = "localhost"; 
+        $username = "root"; 
+        $password = ""; 
+        $dbname = "peminjamanruangan"; 
+
+        // Create connection
+        $conn = new mysqli($servername, $username, $password, $dbname);
+
+        // Check connection
+        if ($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
+        }
+
+        // Prepare and bind statement
+        $stmt = $conn->prepare("INSERT INTO forms (ruangan, date, start, end) VALUES (?, ?, ?, ?, ?)");
+        $stmt->bind_param("sssss", $room, $date, $startTime, $endTime);
+
+        // Execute the statement
+        if ($stmt->execute() === TRUE) {
+            echo "<script>alert('Form submitted successfully');</script>";
+        } else {
+            echo "<script>alert('Failed to submit form');</script>";
+        }
+
+        // Close statement and connection
+        $stmt->close();
+        $conn->close();
+    }
+
+
+
+
+
+    /*if (isset($_SERVER['REQUEST_METHOD']) && $_SERVER['REQUEST_METHOD'] == 'POST') {
         // Get form data
         $startTime = $_POST['StartTime'];
         $endTime = $_POST['EndTime'];
@@ -209,30 +255,40 @@
         $description = $_POST['Description']; 
         $room = $_POST['Room'];
         // Check if a form with the same room and time already exists
-        $sql = "SELECT * FROM forms WHERE room = ? AND date = ? AND ((start_time <= ? AND end_time >= ?) OR (start_time <= ? AND end_time >= ?))";
-        $stmt = $pdo->prepare($sql);
-        $stmt->execute([$room, $date, $startTime, $startTime, $endTime, $endTime]);
-        $existingForm = $stmt->fetch();
+        $conn = new mysqli($servername, $username, $password, $dbname);
 
-        if ($existingForm) {
+        // Check connection
+        if ($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
+        }
+
+        // Prepare and bind statement
+        $stmt = $conn->prepare("SELECT * FROM forms WHERE room = ? AND date = ? AND ((start_time <= ? AND end_time >= ?) OR (start_time <= ? AND end_time >= ?))");
+        $stmt->bind_param("ssssss", $room, $date, $startTime, $startTime, $endTime, $endTime);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        // Check if a form with the same room and time already exists
+        if ($result->num_rows > 0) {
             http_response_code(400); 
             echo "<script>alert('Form with the same room and time already exists');</script>";
             exit();
-        }
-        else{
-            $sql = "INSERT INTO forms (start_time, end_time, date, room) VALUES (?, ?, ?, ?)";
-            $stmt = $pdo->prepare($sql);
-            $stmt->execute([$startTime, $endTime, $date, $room]);
+        } else {
+            $stmt = $conn->prepare("INSERT INTO forms (start_time, end_time, date, room, description) VALUES (?, ?, ?, ?, ?)");
+            $stmt->bind_param("sssss", $startTime, $endTime, $date, $room, $description);
+            $stmt->execute();
 
-            if ($stmt->rowCount() > 0) {
+            if ($stmt->affected_rows > 0) {
                 echo "<script>alert('Form submitted successfully');</script>";
             } else {
                 echo "<script>alert('Failed to submit form');</script>";
             }
         }
 
-
-    }
+        // Close statement and connection
+        $stmt->close();
+        $conn->close();
+    }*/
 ?>
 
 
