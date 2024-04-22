@@ -90,17 +90,23 @@ function OpenPopupDetails(){
 }
 
 function ButtonPinjam1(){
+    let nomorruangan = document.getElementById('txt0').innerHTML;
     document.getElementById('txtPopup').innerHTML = document.getElementById('txt0').innerHTML;
+    document.getElementById('Room').setAttribute("value", nomorruangan.substr(-3));
     OpenPopupPinjam();
 }
 
 function ButtonPinjam2(){
+    let nomorruangan = document.getElementById('txt1').innerHTML;
     document.getElementById('txtPopup').innerHTML = document.getElementById('txt1').innerHTML;
+    document.getElementById('Room').setAttribute("value", nomorruangan.substr(-3));
     OpenPopupPinjam();
 }
 
 function ButtonPinjam3(){
+    let nomorruangan = document.getElementById('txt2').innerHTML;
     document.getElementById('txtPopup').innerHTML = document.getElementById('txt2').innerHTML;
+    document.getElementById('Room').setAttribute("value", nomorruangan.substr(-3));
     OpenPopupPinjam();
 }
 
@@ -149,3 +155,6 @@ function ButtonDetails3(){
     OpenPopupDetails();
 }
 
+function SubmitForm(){
+
+}

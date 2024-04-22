@@ -118,7 +118,9 @@
 
             <div class="inputPinjam">
                 <h1 class="FormTitle">Form Peminjaman Ruangan</h1>
-                <form>
+                <form method="post">
+                    <label class="labelInput" for="Room">Room Number:</label><input type="text" class="inputRoom" name="Room" id="Room" readonly>
+                    <br><br>
                     <label class="labelInput" for="StartTime">Start Time: </label><input type="time" class="inputTime" name="StartTime" id="StartTime">
                     <br><br>
                     <label class="labelInput" for="EndTime">End Time: </label><input type="time" class="inputTime" name="EndTime" id="EndTime">
@@ -129,7 +131,7 @@
                     <br>
                     <textarea name="Description" id="Description" class="Description" rows="4"></textarea>
                     <br><br>
-                    <input type="submit" class="submitButton" value="Submit">
+                    <input type="submit" class="submitButton" value="Submit" onclick="SubmitForm()">
                 </form>
             </div>
 
@@ -198,7 +200,39 @@
     }
     
     $conn->close();
-    
+
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        // Get form data
+        $startTime = $_POST['StartTime'];
+        $endTime = $_POST['EndTime'];
+        $date = $_POST['inputDate'];
+        $description = $_POST['Description']; 
+        $room = $_POST['Room'];
+        // Check if a form with the same room and time already exists
+        $sql = "SELECT * FROM forms WHERE room = ? AND date = ? AND ((start_time <= ? AND end_time >= ?) OR (start_time <= ? AND end_time >= ?))";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute([$room, $date, $startTime, $startTime, $endTime, $endTime]);
+        $existingForm = $stmt->fetch();
+
+        if ($existingForm) {
+            http_response_code(400); 
+            echo "<script>alert('Form with the same room and time already exists');</script>";
+            exit();
+        }
+        else{
+            $sql = "INSERT INTO forms (start_time, end_time, date, room) VALUES (?, ?, ?, ?)";
+            $stmt = $pdo->prepare($sql);
+            $stmt->execute([$startTime, $endTime, $date, $room]);
+
+            if ($stmt->rowCount() > 0) {
+                echo "<script>alert('Form submitted successfully');</script>";
+            } else {
+                echo "<script>alert('Failed to submit form');</script>";
+            }
+        }
+
+
+    }
 ?>
 
 
