@@ -16,7 +16,7 @@ if ($conn->connect_error) {
 $id = $_GET['id'];
 
 // SQL query to delete data with the given ID
-$sql = "DELETE FROM forms WHERE id = $id";
+$sql = "DELETE FROM forms WHERE `forms`.`id` = $id";
 
 // Execute the query
 if ($conn->query($sql) === TRUE) {
