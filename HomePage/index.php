@@ -205,7 +205,7 @@
 
 
 
-    if ($_SERVER['REQUEST_METHOD'] === 'POST') {           //ERROR
+    /*if ($_SERVER['REQUEST_METHOD'] === 'POST') {           //ERROR
         // Get form data
         $startTime = $_POST['StartTime'];
         $endTime = $_POST['EndTime'];
@@ -241,7 +241,7 @@
         // Close statement and connection
         $stmt->close();
         $conn->close();
-    }
+    }*/
 
 
 
