@@ -20,18 +20,3 @@ let GantiIcon2 = function(a) {
     // Add the new icon class
     a.classList.add("fa-solid");
 }
-
-function removeFromDB(id){
-    fetch('removeFromDB.php?id=' + id, {
-        method: 'DELETE'
-      })
-      .then(response => {
-        if (!response.ok) {
-          throw new Error('Failed to delete data');
-        }
-        console.log('Data removed successfully');
-      })
-      .catch(error => {
-        console.error('Error:', error);
-      });
-}
