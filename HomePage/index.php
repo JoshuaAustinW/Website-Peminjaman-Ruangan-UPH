@@ -209,7 +209,7 @@
         $description = $_POST['Description']; 
         $room = $_POST['Room'];
         // Check if a form with the same room and time already exists
-        $sql = "SELECT * FROM forms WHERE room = ? AND date = ? AND ((start_time <= ? AND end_time >= ?) OR (start_time <= ? AND end_time >= ?))";
+        $sql = "SELECT * FROM Form WHERE room = ? AND date = ? AND ((start_time <= ? AND end_time >= ?) OR (start_time <= ? AND end_time >= ?))";
         $stmt = $pdo->prepare($sql);
         $stmt->execute([$room, $date, $startTime, $startTime, $endTime, $endTime]);
         $existingForm = $stmt->fetch();
@@ -220,7 +220,7 @@
             exit();
         }
         else{
-            $sql = "INSERT INTO forms (start_time, end_time, date, room) VALUES (?, ?, ?, ?)";
+            $sql = "INSERT INTO Form (start_time, end_time, date, room) VALUES (?, ?, ?, ?)";
             $stmt = $pdo->prepare($sql);
             $stmt->execute([$startTime, $endTime, $date, $room]);
 
