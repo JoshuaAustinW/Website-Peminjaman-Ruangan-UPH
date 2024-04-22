@@ -129,7 +129,7 @@
                             </div>
                         
                             
-                            <button type='submit' class='cancel' name='cancel_reservation' id='cancelButton' onclick=''>CANCEL</button>
+                            <button type='submit' class='cancel' name='cancel_reservation' id='cancelButton'>CANCEL</button>
                             
                            
                         </div>                        
