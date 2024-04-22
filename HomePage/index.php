@@ -211,6 +211,9 @@
         $ruangan = $_POST['Room'];
         $status = "pending"; 
 
+        $mySQL_startTime = $date." ".$startTime;
+        $mySQL_endTime = $date." ".$endTime;
+
         $servername = "localhost";
         $username = "root";
         $password = "";
@@ -230,7 +233,7 @@
 
         // Prepare and bind statement
         $stmt = $conn->prepare("INSERT INTO forms (`id`,  `ruangan`, `date`, `start`, `end`, `status`, `description`) VALUES (?, ?, ?, ?, ?, ?, ?)");
-        $stmt->bind_param("issssss", $nextFormId, $ruangan, $date, $startTime, $endTime, $status, $description);
+        $stmt->bind_param("issssss", $nextFormId, $ruangan, $date, $mySQL_startTime, $mySQL_endTime, $status, $description);
 
     // Execute the statement
         if ($stmt->execute() === TRUE) {
