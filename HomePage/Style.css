@@ -534,7 +534,7 @@ body {
         transform: translateX(0%);
         height: 20%;
         width: 70%;
-        top: 15%;
+        top: 10%;
         margin-bottom: 10%;
     }
 
@@ -551,6 +551,10 @@ body {
 
     .FormTitle{
         font-size: 14px;
+    }
+    
+    #xbutton{
+        font-size: 30px;
     }
 }
 

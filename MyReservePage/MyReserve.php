@@ -60,6 +60,10 @@
     <div id="reserveList">
       <div id="BlankSpace"></div>
 
+
+
+
+<!--
           <div class="maincontent">
               <div class="ImageContainer">
                 <div class="RoomName">LP-501</div>
@@ -75,6 +79,66 @@
           
               <button class="cancel">CANCEL</button>
           </div>
+-->
+
+
+
+
+
+
+
+          <?php
+          // Step 1: Connect to MySQL database
+          $servername = "localhost";
+          $username = "root";
+          $password = "";
+          $database = "peminjamanruangan";
+
+          // Create connection
+          $conn = new mysqli($servername, $username, $password, $database);
+
+          // Check connection
+          if ($conn->connect_error) {
+              die("Connection failed: " . $conn->connect_error);
+          }
+
+          // Step 2: Execute SQL query to retrieve data
+          $sql = "SELECT * FROM forms";
+          $result = $conn->query($sql);
+          
+
+          // Step 3: Fetch data from the result set
+          if ($result->num_rows > 0) {
+              // Output data of each row
+              while($row = $result->fetch_assoc()) {
+                  // Step 4: Process the data as needed
+                  
+                  echo "<div class='maincontent'>
+                            <div class='ImageContainer'>
+                              <div class='RoomName'>LP-".$row["ruangan"]."</div>
+                              <div class='RoomImage'><img src='../res/img/CompLab.png' alt='' /></div>
+                            </div>
+                          
+                            <div class='details'>
+                              <span class='startTime'>Start Time : ".substr($row["start"], 11)."</span>
+                              <span class='date'>Date : ".$row["date"]."</span>
+                              <span class='endTime'>End Time : ".substr($row["end"], 11)."</span>
+                              <span class='status'>Status : ".$row["status"]." </span>
+                            </div>
+                        
+                            
+                            <button type='submit' class='cancel' name='cancel_reservation' id='cancelButton' onclick='removeFromDB(".$row["id"].")'>CANCEL</button>
+                            
+                           
+                        </div>";
+              }
+          } else {
+              echo "0 results";
+          }
+
+          // Close connection //<!-- <button class='cancel'>CANCEL</button>
+          $conn->close();
+          ?>
 
     </div>
     

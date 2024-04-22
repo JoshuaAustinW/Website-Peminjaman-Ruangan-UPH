@@ -191,14 +191,15 @@ body {
 
 
 .cancel{ 
+    position: absolute;
     color: white;
     background-color: red;
     border:none;
-    width: 50%;
+    width: 15%;
     font-family: 'Sans-serif';
     font-weight: bold;
     font-size: 20px;
-    margin-right: 3%;
+    left: 80%;
     padding-top: 1%;
     padding-bottom: 1%;
 }
