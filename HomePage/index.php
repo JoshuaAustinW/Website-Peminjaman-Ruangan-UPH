@@ -27,7 +27,7 @@
                 <div class="TextMaster"> <i class="fa-solid fa-house" id="iconhomemenu"></i> <h3 class="MenuText">Home</h3> </div>
             </a>
 
-            <a class="HyperlinkMyReserve" href="../MyReservePage/MyReserve.html" target="">
+            <a class="HyperlinkMyReserve" href="../MyReservePage/MyReserve.php" target="">
                 <div class="TextMaster"> <h3 class="MenuText">My Reservations</h3> </div>
             </a>
 
