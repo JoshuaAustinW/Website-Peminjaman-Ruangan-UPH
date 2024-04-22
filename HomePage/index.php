@@ -19,7 +19,7 @@
 
     <script src="fungsi.js"></script>
 
-    <div id="MenuBox">
+    <div id="MenuBox">e 
 
         <div id="MasterMenu">
 
@@ -201,47 +201,6 @@
 
 
     $conn->close();
-
-
-
-
-    /*if ($_SERVER['REQUEST_METHOD'] === 'POST') {           //ERROR
-        // Get form data
-        $startTime = $_POST['StartTime'];
-        $endTime = $_POST['EndTime'];
-        $date = $_POST['inputDate'];
-        $description = $_POST['Description']; 
-        $room = $_POST['Room'];
-
-        // Your MySQL server credentials
-        $servername = "localhost"; 
-        $username = "root"; 
-        $password = ""; 
-        $dbname = "peminjamanruangan"; 
-
-        // Create connection
-        $conn = new mysqli($servername, $username, $password, $dbname);
-
-        // Check connection
-        if ($conn->connect_error) {
-            die("Connection failed: " . $conn->connect_error);
-        }
-
-        // Prepare and bind statement
-        $stmt = $conn->prepare("INSERT INTO forms (ruangan, date, start, end) VALUES (?, ?, ?, ?, ?)");
-        $stmt->bind_param("sssss", $room, $date, $startTime, $endTime);
-
-        // Execute the statement
-        if ($stmt->execute() === TRUE) {
-            echo "<script>alert('Form submitted successfully');</script>";
-        } else {
-            echo "<script>alert('Failed to submit form');</script>";
-        }
-
-        // Close statement and connection
-        $stmt->close();
-        $conn->close();
-    }*/
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Get form data
