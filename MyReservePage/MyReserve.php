@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -88,7 +89,8 @@
 
 
           <?php
-          // Step 1: Connect to MySQL database
+
+          
           $servername = "localhost";
           $username = "root";
           $password = "";
@@ -102,16 +104,16 @@
               die("Connection failed: " . $conn->connect_error);
           }
 
-          // Step 2: Execute SQL query to retrieve data
-          $sql = "SELECT * FROM forms";
+         
+          $sql = "SELECT * FROM forms WHERE status IN ('pending', 'approved')";
           $result = $conn->query($sql);
           
 
-          // Step 3: Fetch data from the result set
+          
           if ($result->num_rows > 0) {
               // Output data of each row
               while($row = $result->fetch_assoc()) {
-                  // Step 4: Process the data as needed
+                 
                   
                   echo "<div class='maincontent'>
                             <div class='ImageContainer'>
@@ -127,16 +129,17 @@
                             </div>
                         
                             
-                            <button type='submit' class='cancel' name='cancel_reservation' id='cancelButton' onclick='removeFromDB(".$row["id"].")'>CANCEL</button>
+                            <button type='submit' class='cancel' name='cancel_reservation' id='cancelButton' onclick=''>CANCEL</button>
                             
                            
-                        </div>";
+                        </div>                        
+                        ";
               }
           } else {
               echo "0 results";
           }
 
-          // Close connection //<!-- <button class='cancel'>CANCEL</button>
+          // Close connection //<!-- <button class='cancel'>CANCEL</button>    deleteData(". $row['id'] .")
           $conn->close();
           ?>
 
