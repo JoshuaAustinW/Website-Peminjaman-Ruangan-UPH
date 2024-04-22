@@ -243,55 +243,48 @@
         $conn->close();
     }*/
 
-
-
-
-
-    /*if (isset($_SERVER['REQUEST_METHOD']) && $_SERVER['REQUEST_METHOD'] == 'POST') {
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Get form data
         $startTime = $_POST['StartTime'];
         $endTime = $_POST['EndTime'];
         $date = $_POST['inputDate'];
-        $description = $_POST['Description']; 
-        $room = $_POST['Room'];
-        // Check if a form with the same room and time already exists
+        $description = $_POST['Description'];
+        $ruangan = $_POST['Room'];
+        $status = "pending"; 
+
+        $servername = "localhost";
+        $username = "root";
+        $password = "";
+        $dbname = "peminjamanruangan";
+
         $conn = new mysqli($servername, $username, $password, $dbname);
 
-        // Check connection
         if ($conn->connect_error) {
             die("Connection failed: " . $conn->connect_error);
         }
 
+        // Get the maximum formid from the database and increment by 1
+        $maxFormIdQuery = "SELECT MAX(id) AS maxId FROM forms";
+        $result = $conn->query($maxFormIdQuery);
+        $row = $result->fetch_assoc();
+        $nextFormId = $row["maxId"] + 1;
+
         // Prepare and bind statement
-        $stmt = $conn->prepare("SELECT * FROM forms WHERE room = ? AND date = ? AND ((start_time <= ? AND end_time >= ?) OR (start_time <= ? AND end_time >= ?))");
-        $stmt->bind_param("ssssss", $room, $date, $startTime, $startTime, $endTime, $endTime);
-        $stmt->execute();
-        $result = $stmt->get_result();
+        $stmt = $conn->prepare("INSERT INTO forms (`id`,  `ruangan`, `date`, `start`, `end`, `status`, `description`) VALUES (?, ?, ?, ?, ?, ?, ?)");
+        $stmt->bind_param("issssss", $nextFormId, $ruangan, $date, $startTime, $endTime, $status, $description);
 
-        // Check if a form with the same room and time already exists
-        if ($result->num_rows > 0) {
-            http_response_code(400); 
-            echo "<script>alert('Form with the same room and time already exists');</script>";
-            exit();
+    // Execute the statement
+        if ($stmt->execute() === TRUE) {
+            echo "<script>alert('Form submitted successfully');</script>";
         } else {
-            $stmt = $conn->prepare("INSERT INTO forms (start_time, end_time, date, room, description) VALUES (?, ?, ?, ?, ?)");
-            $stmt->bind_param("sssss", $startTime, $endTime, $date, $room, $description);
-            $stmt->execute();
-
-            if ($stmt->affected_rows > 0) {
-                echo "<script>alert('Form submitted successfully');</script>";
-            } else {
-                echo "<script>alert('Failed to submit form');</script>";
-            }
+            echo "<script>alert('Failed to submit form');</script>";
         }
 
         // Close statement and connection
         $stmt->close();
         $conn->close();
-    }*/
+    }
 ?>
-
-
 
 </body>
 </html>
