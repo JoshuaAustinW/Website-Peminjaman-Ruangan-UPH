@@ -7,7 +7,7 @@ body{
     background-size: cover;
     background-position: center center;
     backdrop-filter: blur(10px);
-    height: 100vh;
+    height: 100%;
     overflow: hidden;
 }
 
@@ -104,6 +104,17 @@ form .txt_field{
     color: red;
     font-size: 12px;
 }
+
+@media only screen and (max-width: 450px){
+    .center{
+        width: 90%;
+    }
+
+    .Logo{
+        width: 20%;
+    }
+}
+
 
 @media only screen and (max-width: 450px){
     .center{
