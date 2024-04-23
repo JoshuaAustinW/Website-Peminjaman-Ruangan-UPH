@@ -94,7 +94,7 @@
                     </div>";
       }
     } else {
-      echo "0 results";
+      
     }
 
     // Close connection
