@@ -104,3 +104,13 @@ form .txt_field{
     color: red;
     font-size: 12px;
 }
+
+@media only screen and (max-width: 450px){
+    .center{
+        width: 90%;
+    }
+
+    .Logo{
+        width: 20%;
+    }
+}
