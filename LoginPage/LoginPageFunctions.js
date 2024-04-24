@@ -1,7 +1,6 @@
 function generateRandomCode() {
     var randomCode = '';
     for (var i = 0; i < 6; i++) {
-      // Generate a random digit (0 to 9)
       var digit = Math.floor(Math.random() * 10);
       randomCode += digit;
     }
@@ -20,7 +19,6 @@ function validateEmail() {
     }
     else {
         emailError.innerHTML = '';
-        // Generate OTP
         var randomCode = generateRandomCode();
         window.location.href="../HomePage/index.php";
     }

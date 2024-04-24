@@ -178,10 +178,8 @@
     $result = $conn->query($sql);
     
     if ($result->num_rows > 0) {
-        // Define an empty array to store venue objects
         $semua_ruangan = array();
     
-        // Fetch data and construct objects
         while ($row = $result->fetch_assoc()) {
             $ruangan = new stdClass();
             $ruangan->number = $row["no"];
@@ -189,7 +187,6 @@
             $ruangan->capacity = $row["kapasitas"];
             $ruangan->location = $row["lokasi"];
     
-            // Push the object into the array
             $semua_ruangan[] = $ruangan;
         }
         
@@ -203,7 +200,6 @@
     $conn->close();
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        // Get form data
         $startTime = $_POST['StartTime'];
         $endTime = $_POST['EndTime'];
         $date = $_POST['inputDate'];
@@ -225,24 +221,20 @@
             die("Connection failed: " . $conn->connect_error);
         }
 
-        // Get the maximum formid from the database and increment by 1
         $maxFormIdQuery = "SELECT MAX(id) AS maxId FROM forms";
         $result = $conn->query($maxFormIdQuery);
         $row = $result->fetch_assoc();
         $nextFormId = $row["maxId"] + 1;
 
-        // Prepare and bind statement
         $stmt = $conn->prepare("INSERT INTO forms (`id`,  `ruangan`, `date`, `start`, `end`, `status`, `description`) VALUES (?, ?, ?, ?, ?, ?, ?)");
         $stmt->bind_param("issssss", $nextFormId, $ruangan, $date, $mySQL_startTime, $mySQL_endTime, $status, $description);
 
-    // Execute the statement
         if ($stmt->execute() === TRUE) {
-            echo "<script>alert('Form submitted successfully');</script>";
+            echo "<script>alert('Form berhasil disubmit!');</script>";
         } else {
-            echo "<script>alert('Failed to submit form');</script>";
+            echo "<script>alert('Gagal untuk submit form!');</script>";
         }
 
-        // Close statement and connection
         $stmt->close();
         $conn->close();
     }

@@ -11,12 +11,10 @@ function ShowMenu() {
 
 let GantiIcon = function(a) {
     a.classList.remove("fa-solid");
-    // Add the new icon class
     a.classList.add("fa-regular");
 }
 
 let GantiIcon2 = function(a) {
     a.classList.remove("fa-regular");
-    // Add the new icon class
     a.classList.add("fa-solid");
 }
