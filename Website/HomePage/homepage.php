@@ -200,15 +200,16 @@
     $conn->close();
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
         $startTime = $_POST['StartTime'];
         $endTime = $_POST['EndTime'];
         $date = $_POST['inputDate'];
         $description = $_POST['Description'];
         $ruangan = $_POST['Room'];
-        $status = "pending"; 
+        $status = "pending";
 
-        $mySQL_startTime = $date." ".$startTime;
-        $mySQL_endTime = $date." ".$endTime;
+        $mySQL_startTime = $date . " " . $startTime;
+        $mySQL_endTime = $date . " " . $endTime;
 
         $servername = "localhost";
         $username = "root";
@@ -226,13 +227,13 @@
         $row = $result->fetch_assoc();
         $nextFormId = $row["maxId"] + 1;
 
-        $stmt = $conn->prepare("INSERT INTO forms (`id`,  `ruangan`, `date`, `start`, `end`, `status`, `description`) VALUES (?, ?, ?, ?, ?, ?, ?)");
+        $stmt = $conn->prepare("INSERT INTO forms (id,  ruangan, date, start, end, status, description) VALUES (?, ?, ?, ?, ?, ?, ?)");
         $stmt->bind_param("issssss", $nextFormId, $ruangan, $date, $mySQL_startTime, $mySQL_endTime, $status, $description);
 
         if ($stmt->execute() === TRUE) {
-            echo "<script>alert('Form berhasil disubmit!');</script>";
+            echo "<script>alert('Form submitted successfully');</script>";
         } else {
-            echo "<script>alert('Gagal untuk submit form!');</script>";
+            echo "<script>alert('Failed to submit form');</script>";
         }
 
         $stmt->close();

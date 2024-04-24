@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 24, 2024 at 06:37 AM
+-- Generation Time: Apr 24, 2024 at 06:56 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -31,8 +31,8 @@ CREATE TABLE `forms` (
   `id` int(11) NOT NULL,
   `ruangan` int(11) NOT NULL,
   `date` date NOT NULL,
-  `start` time NOT NULL,
-  `end` time NOT NULL,
+  `start` datetime NOT NULL,
+  `end` datetime NOT NULL,
   `status` varchar(10) NOT NULL,
   `description` varchar(300) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -42,15 +42,7 @@ CREATE TABLE `forms` (
 --
 
 INSERT INTO `forms` (`id`, `ruangan`, `date`, `start`, `end`, `status`, `description`) VALUES
-(1, 102, '2024-04-12', '23:54:00', '22:56:00', 'cancelled', 'asd'),
-(2, 102, '2024-04-12', '23:54:00', '22:56:00', 'cancelled', 'asd'),
-(3, 503, '2024-05-01', '00:10:00', '23:11:00', 'cancelled', 'dasdasdasd'),
-(4, 101, '2024-04-18', '00:39:00', '23:42:00', 'cancelled', 'asdasd'),
-(5, 101, '2024-04-19', '23:43:00', '23:44:00', 'cancelled', 'asda'),
-(6, 104, '2024-05-01', '15:46:00', '16:46:00', 'cancelled', 'Belajar'),
-(7, 103, '2024-04-25', '17:58:00', '19:53:00', 'pending', 'Belajar 2'),
-(8, 602, '2024-04-15', '13:19:00', '14:00:00', 'cancelled', 'Belajar'),
-(9, 101, '2024-04-24', '11:13:00', '13:13:00', 'pending', 'organisasi');
+(1, 101, '2024-04-25', '2024-04-25 13:56:00', '2024-04-25 15:56:00', 'pending', 'asda');
 
 -- --------------------------------------------------------
 

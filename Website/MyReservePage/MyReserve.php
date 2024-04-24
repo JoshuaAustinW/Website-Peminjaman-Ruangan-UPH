@@ -22,7 +22,7 @@
   <div id="MenuBox">
     <div id="MasterMenu">
 
-      <a class="HyperlinkHome" href="../HomePage/index.php" target="">
+      <a class="HyperlinkHome" href="../HomePage/homepage.php" target="">
         <div class="TextMaster">
           <i class="fa-solid fa-house" id="iconhomemenu"></i>
           <h3 class="MenuText">Home</h3>
