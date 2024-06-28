@@ -68,10 +68,11 @@
 
     $sql = "SELECT * FROM forms WHERE status IN ('pending', 'approved') AND status != 'cancelled'";
     $result = $conn->query($sql);
-
+    $numberofForm = 0; //jumlah form yang ada
+    $roomname = array(); //array untuk menyimpan nama ruangan dalam form 
     if ($result->num_rows > 0) {
       while ($row = $result->fetch_assoc()) {
-
+        $numberofForm = $numberofForm + 1; //tambah 1 setiap kali ada form yang diambil
         echo "
                     <div class='maincontent'>
                       <div class='ImageContainer'>
@@ -89,12 +90,23 @@
                         <button type='submit' class='cancel' name='cancel_reservation'>CANCEL</button>
                       </form>
                     </div>";
+        array_push($roomname, $row["ruangan"]); //masukkan nama ruangan ke dalam array
       }
     } else {
       
     }
 
     $conn->close();
+
+    $roomNamesString = ""; //string untuk menampilkan nama dan lokasi ruangan
+    for ($i = 0; $i < $numberofForm; $i++) { //looping untuk menampilkan nama dan lokasi ruangan
+      if ($roomname[$i][0] == "1") { //jika ruangan dimulai dengan angka 1, maka ruangan tersebut berada di Arya Duta
+      $roomNamesString .= "Arya Duta " . $roomname[$i] . "\\n"; //tambahkan nama ruangan ke dalam string
+      } else { //jika ruangan dimulai bukan angka 1, maka ruangan tersebut berada di Lippo
+      $roomNamesString .= "Lippo " . $roomname[$i] . "\\n"; //tambahkan nama ruangan ke dalam string
+      }
+    }
+    echo "<script>alert('" . $roomNamesString . "');</script>"; //tampilkan nama dan lokasi ruangan dalam alert
     ?>
 
   </div>
