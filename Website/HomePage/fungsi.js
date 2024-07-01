@@ -13,7 +13,7 @@ function filter() {
 
 function displayRooms() {
     for (var i = 0; i < Math.min(filteredRuangan.length - roomIndex, 3); i++) {
-        document.getElementById('txt' + i).innerText = 'ROOM-' + filteredRuangan[roomIndex + i].number;
+        document.getElementById('txt' + i).innerText = 'ROOM-' + filteredRuangan[roomIndex + i].no;
     }
 }
 
