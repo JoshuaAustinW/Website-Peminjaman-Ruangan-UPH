@@ -23,3 +23,5 @@ function validateEmail() {
         window.location.href="../HomePage/homepage.php";
     }
   }
+
+//Tes Commit LoginPageFunctions.js
