@@ -1,3 +1,7 @@
+<?php
+include 'classruangan.php'
+    ?>
+
 <!DOCTYPE html>
 <html>
 
@@ -14,8 +18,6 @@
     <link rel="stylesheet" href="Style.css">
 
     <script src="https://kit.fontawesome.com/0020352476.js" crossorigin="anonymous"></script>
-    <script src="classruangan.js"></script>
-
 </head>
 
 <body>
@@ -205,33 +207,26 @@
     $sql = "SELECT no, tipe, kapasitas, lokasi FROM ruangan";
     $result = $conn->query($sql);
 
+    $ruanganArray = array();
+
     if ($result->num_rows > 0) {
-        $semua_ruangan = array();
-
         while ($row = $result->fetch_assoc()) {
-            $ruangan = new stdClass();
-            $ruangan->number = $row["no"];
-            $ruangan->type = $row["tipe"];
-            $ruangan->capacity = $row["kapasitas"];
-            $ruangan->location = $row["lokasi"];
-
-            $semua_ruangan[] = $ruangan;
+            $ruangan = new Ruangan($row['no'], $row['tipe'], $row['kapasitas'], $row['lokasi']);
+            array_push($ruanganArray, $ruangan);
         }
+    }
+    $semua_ruangan_json = json_encode($semua_ruangan);
 
-        $semua_ruangan_json = json_encode($semua_ruangan);
-
-        echo "<script>
-                var rawRuanganData = $semua_ruangan_json;
-                var semuaRuangan = [];
-                for (var i = 0; i < rawRuanganData.length; i++) {
-                    var ruanganData = rawRuanganData[i];
-                    var ruangan = new Ruangan(ruanganData.number, ruanganData.type, ruanganData.capacity, ruanganData.location);
+    echo "  <script>
+                let rawRuanganData = $semua_ruangan_json;
+                let semuaRuangan = [];
+                for (let i = 0; i < rawRuanganData.length; i++) {
+                    let ruanganData = rawRuanganData[i];
+                    let ruangan = new Ruangan(ruanganData.number, ruanganData.type, ruanganData.capacity, ruanganData.location);
                     semuaRuangan.push(ruangan);
                 }
-              </script>";
-
-    }
-
+            </script>";
+    // Close the database connection
     $conn->close();
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
