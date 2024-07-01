@@ -3,10 +3,10 @@
 class Ruangan
 {
   // Define properties
-  private $no;
-  private $tipe;
-  private $kapasitas;
-  private $lokasi;
+  public $no;
+  public $tipe;
+  public $kapasitas;
+  public $lokasi;
 
   // Define constructor
   public function __construct($no, $tipe, $kapasitas, $lokasi)
