@@ -1,6 +1,5 @@
 <?php
     session_start();
-    include 'classruangan.php';
     
     if (!isset($_SESSION['user_id'])) {
         
@@ -214,6 +213,7 @@
     <?php
 
     require '../db.php';
+    require 'classruangan.php';
 
     $sql = "SELECT no, tipe, kapasitas, lokasi FROM ruangan";
     $result = $conn->query($sql);
@@ -229,6 +229,16 @@
     $semua_ruangan_json = json_encode($semua_ruangan);
 
     echo "  <script>
+
+                class Ruangan {
+                        constructor(no, tipe, kapasitas, lokasi) {
+                        this.no = no;
+                        this.tipe = tipe;
+                        this.kapasitas = kapasitas;
+                        this.lokasi = lokasi;
+                    }
+                }
+
                 let rawRuanganData = $semua_ruangan_json;
                 let semuaRuangan = [];
                 for (let i = 0; i < rawRuanganData.length; i++) {

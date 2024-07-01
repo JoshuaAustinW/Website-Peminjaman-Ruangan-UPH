@@ -125,9 +125,9 @@ function ButtonDetails1(){
 function ButtonDetails2(){
     let nomorruangan = document.getElementById('txt1').innerHTML;
     let IndexRuanganTerpilih = filteredRuangan.findIndex(room => room.number === nomorruangan.replace("ROOM-",""));
-    let tiperuangan = filteredRuangan[IndexRuanganTerpilih].type;
-    let kapasitasruangan = filteredRuangan[IndexRuanganTerpilih].capacity;
-    let lokasiruangan = filteredRuangan[IndexRuanganTerpilih].location;
+    let tiperuangan = filteredRuangan[IndexRuanganTerpilih].tipe;
+    let kapasitasruangan = filteredRuangan[IndexRuanganTerpilih].kapasitas;
+    let lokasiruangan = filteredRuangan[IndexRuanganTerpilih].lokasi;
 
     document.getElementById('txtPopupDetails').innerHTML = nomorruangan;
     document.getElementById('Nomor').innerHTML = "Nomor Ruangan: " + nomorruangan.replace("ROOM-","");
@@ -140,9 +140,9 @@ function ButtonDetails2(){
 function ButtonDetails3(){
     let nomorruangan = document.getElementById('txt2').innerHTML;
     let IndexRuanganTerpilih = filteredRuangan.findIndex(room => room.number === nomorruangan.replace("ROOM-",""));
-    let tiperuangan = filteredRuangan[IndexRuanganTerpilih].type;
-    let kapasitasruangan = filteredRuangan[IndexRuanganTerpilih].capacity;
-    let lokasiruangan = filteredRuangan[IndexRuanganTerpilih].location;
+    let tiperuangan = filteredRuangan[IndexRuanganTerpilih].tipe;
+    let kapasitasruangan = filteredRuangan[IndexRuanganTerpilih].kapasitas;
+    let lokasiruangan = filteredRuangan[IndexRuanganTerpilih].lokasi;
 
     document.getElementById('txtPopupDetails').innerHTML = nomorruangan;
     document.getElementById('Nomor').innerHTML = "Nomor Ruangan: " + nomorruangan.replace("ROOM-","");
