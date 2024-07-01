@@ -218,12 +218,12 @@
     $sql = "SELECT no, tipe, kapasitas, lokasi FROM ruangan";
     $result = $conn->query($sql);
 
-    $ruanganArray = array();
+    $semua_ruangan = array();
 
     if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {
             $ruangan = new Ruangan($row['no'], $row['tipe'], $row['kapasitas'], $row['lokasi']);
-            array_push($ruanganArray, $ruangan);
+            array_push($semua_ruangan, $ruangan);
         }
     }
     $semua_ruangan_json = json_encode($semua_ruangan);
