@@ -1,3 +1,21 @@
+<?php
+    session_start();
+    if (!isset($_SESSION['user_id'])) {
+        
+        if (isset($_COOKIE['remember_me'])) {
+            
+            $_SESSION['user_id'] = $_COOKIE['remember_me'];
+            $_SESSION['username'] = $_COOKIE['username'];
+            $_SESSION['email'] = $_COOKIE['email'];
+        } else {
+            
+            header("Location: ../LoginRegis/Login/Login.php");
+            exit();
+        }
+    }
+
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -53,7 +71,7 @@
             <i class="fa-solid fa-bars" onclick="ShowMenu(this)" id="menubar"></i>
             <div id="Title">Web Peminjaman Ruangan</div>
             <a class="homebut" href=""><i class="fa-solid fa-house" id="HomeIcon"></i></a>
-            <a class="userbut" href=""><i class="fa-solid fa-user" onmouseenter="GantiIcon(this)" onmouseleave="GantiIcon2(this)" id="UserIcon"></i></a>
+            <a class="userbut" href=""><i class="fa-solid fa-user" onmouseenter="GantiIcon(this)" onmouseleave="GantiIcon2(this)" id="UserIcon" onclick="ShowUserPopup()"></i></a>
     </div>
 
 </Header>
@@ -161,17 +179,15 @@
 
         </div>
 
+
+
+        <div class="UserPopup hidden" id="UserPopup">
+            <div class="ButtonLogout" onclick="OpenPage('../Logout.php')">Logout</div>
+        </div>
+
+
 <?php
-    $servername = "localhost"; 
-    $username = "root"; 
-    $password = ""; 
-    $dbname = "peminjamanruangan"; 
-    
-    $conn = new mysqli($servername, $username, $password, $dbname);
-    
-    if ($conn->connect_error) {
-        die("Koneksi Gagal: " . $conn->connect_error);
-    }
+    require '../db.php';
     
     
     $sql = "SELECT no, tipe, kapasitas, lokasi FROM ruangan";
@@ -211,24 +227,12 @@
         $mySQL_startTime = $date . " " . $startTime;
         $mySQL_endTime = $date . " " . $endTime;
 
-        $servername = "localhost";
-        $username = "root";
-        $password = "";
-        $dbname = "peminjamanruangan";
+        require '../db.php';
 
-        $conn = new mysqli($servername, $username, $password, $dbname);
+        $user_id = $_SESSION['user_id'];
 
-        if ($conn->connect_error) {
-            die("Connection failed: " . $conn->connect_error);
-        }
-
-        $maxFormIdQuery = "SELECT MAX(id) AS maxId FROM forms";
-        $result = $conn->query($maxFormIdQuery);
-        $row = $result->fetch_assoc();
-        $nextFormId = $row["maxId"] + 1;
-
-        $stmt = $conn->prepare("INSERT INTO forms (id,  ruangan, date, start, end, status, description) VALUES (?, ?, ?, ?, ?, ?, ?)");
-        $stmt->bind_param("issssss", $nextFormId, $ruangan, $date, $mySQL_startTime, $mySQL_endTime, $status, $description);
+        $stmt = $conn->prepare("INSERT INTO forms (user_id, ruangan, date, start, end, status, description) VALUES (?, ?, ?, ?, ?, ?, ?)");
+        $stmt->bind_param("issssss", $user_id, $ruangan, $date, $mySQL_startTime, $mySQL_endTime, $status, $description);
 
         if ($stmt->execute() === TRUE) {
             echo "<script>alert('Form submitted successfully');</script>";

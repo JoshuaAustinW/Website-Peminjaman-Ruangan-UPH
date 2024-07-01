@@ -1,3 +1,22 @@
+<?php
+    session_start();
+    if (!isset($_SESSION['user_id'])) {
+        
+        if (isset($_COOKIE['remember_me'])) {
+            
+            $_SESSION['user_id'] = $_COOKIE['remember_me'];
+            $_SESSION['username'] = $_COOKIE['username'];
+            $_SESSION['email'] = $_COOKIE['email'];
+        } else {
+            
+            header("Location: ../LoginRegis/Login/Login.php");
+            exit();
+        }
+    }
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -54,29 +73,39 @@
     <?php
 
 
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $database = "peminjamanruangan";
+    require '../db.php';
 
-    $conn = new mysqli($servername, $username, $password, $database);
 
-    if ($conn->connect_error) {
-      die("Connection failed: " . $conn->connect_error);
+    $sql = "SELECT * FROM forms WHERE status IN ('pending', 'approved') AND user_id = ?";
+    $stmt = $conn->prepare($sql);
+
+    $user_id = $_SESSION['user_id'];
+
+    if ($stmt === false) {
+      die("Error preparing the statement: " . $conn->error);
     }
+    $stmt->bind_param("i", $user_id);
+    $stmt->execute();
+    $result = $stmt->get_result();
 
-
-    $sql = "SELECT * FROM forms WHERE status IN ('pending', 'approved') AND status != 'cancelled'";
-    $result = $conn->query($sql);
+    if ($result === false) {
+    die("Error executing the statement: " . $stmt->error);
+    }
+    
     $numberofForm = 0; //jumlah form yang ada
     $roomname = array(); //array untuk menyimpan nama ruangan dalam form 
     if ($result->num_rows > 0) {
       while ($row = $result->fetch_assoc()) {
+        $nomorRuangan = (string)$row['ruangan'];
+        if($nomorRuangan[0] == 1){
+          $Gedung = 'AD';
+        } else $Gedung = 'LP';
+        
         $numberofForm = $numberofForm + 1; //tambah 1 setiap kali ada form yang diambil
         echo "
                     <div class='maincontent'>
                       <div class='ImageContainer'>
-                        <div class='RoomName'>LP-" . $row["ruangan"] . "</div>
+                        <div class='RoomName'>$Gedung-" . $row["ruangan"] . "</div>
                         <div class='RoomImage'><img src='../res/img/CompLab.png' alt='' /></div>
                       </div>
                       <div class='details'>
@@ -96,7 +125,10 @@
       
     }
 
+    $stmt->close();
     $conn->close();
+
+    /*
 
     $roomNamesString = ""; //string untuk menampilkan nama dan lokasi ruangan
     for ($i = 0; $i < $numberofForm; $i++) { //looping untuk menampilkan nama dan lokasi ruangan
@@ -107,6 +139,9 @@
       }
     }
     echo "<script>alert('" . $roomNamesString . "');</script>"; //tampilkan nama dan lokasi ruangan dalam alert
+    
+    */
+    
     ?>
 
   </div>

@@ -155,3 +155,16 @@ function ButtonDetails3(){
 function SubmitForm(){
  
 }
+
+function OpenPage(a){
+    window.location.href = a;
+}
+
+function ShowUserPopup(){
+     var popup = document.getElementById('UserPopup');
+     if(popup.classList.contains('hidden')){
+        popup.classList.remove('hidden');
+     } else{
+        popup.classList.add('hidden');
+     }
+}
