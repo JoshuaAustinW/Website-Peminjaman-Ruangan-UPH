@@ -1,36 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login Page</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Work+Sans:wght@300&display=swap"
+      rel="stylesheet"
+    />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Work+Sans:wght@300&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet" href="LoginPageStyle.css">
-</head>
-<body>
-
+    <link rel="stylesheet" href="LoginPageStyle.css" />
+  </head>
+  <body>
     <script src="LoginPageFunctions.js"></script>
 
-    <img class="Logo" src="../res/img/UPH_LOGO_Color.png" alt="UPH Logo">
+    <img class="Logo" src="../res/img/UPH_LOGO_Color.png" alt="UPH Logo" />
 
     <div class="center">
-        <h1>Login</h1>
-        
-        <form id="emailForm" method="post">
-            <div class="txt_field">
-                <input type="email" id="email" name="email" placeholder="Enter Your Email (.uph.edu)" required>
-                <span></span>
-            </div>
+      <h1>Login</h1>
 
-            <div class="error-message" id="emailError"></div>
+      <form id="emailForm" method="post">
+        <div class="txt_field">
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Enter Your Email (.uph.edu)"
+            required
+          />
+          <span></span>
+        </div>
 
-            <button id="LoginButton" type="button" onclick="validateEmail()">Login</button>
-        </form>
+        <div class="error-message" id="emailError"></div>
 
+        <button id="LoginButton" type="button" onclick="validateEmail()">
+          Login
+        </button>
+      </form>
     </div>
-</body>
+  </body>
 </html>
