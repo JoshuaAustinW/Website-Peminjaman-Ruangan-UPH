@@ -1,19 +1,19 @@
 <?php
-    session_start();
-    
-    if (!isset($_SESSION['user_id'])) {
-        
-        if (isset($_COOKIE['remember_me'])) {
-            
-            $_SESSION['user_id'] = $_COOKIE['remember_me'];
-            $_SESSION['username'] = $_COOKIE['username'];
-            $_SESSION['email'] = $_COOKIE['email'];
-        } else {
-            
-            header("Location: ../LoginRegis/Login/Login.php");
-            exit();
-        }
+session_start();
+
+if (!isset($_SESSION['user_id'])) {
+
+    if (isset($_COOKIE['remember_me'])) {
+
+        $_SESSION['user_id'] = $_COOKIE['remember_me'];
+        $_SESSION['username'] = $_COOKIE['username'];
+        $_SESSION['email'] = $_COOKIE['email'];
+    } else {
+
+        header("Location: ../LoginRegis/Login/Login.php");
+        exit();
     }
+}
 
 ?>
 
@@ -78,8 +78,9 @@
             <i class="fa-solid fa-bars" onclick="ShowMenu(this)" id="menubar"></i>
             <div id="Title">Web Peminjaman Ruangan</div>
             <a class="homebut" href=""><i class="fa-solid fa-house" id="HomeIcon"></i></a>
-            <a class="userbut" href=""><i class="fa-solid fa-user" onmouseenter="GantiIcon(this)" onmouseleave="GantiIcon2(this)" id="UserIcon" onclick="ShowUserPopup()"></i></a>
-    </div>
+            <a class="userbut" href=""><i class="fa-solid fa-user" onmouseenter="GantiIcon(this)"
+                    onmouseleave="GantiIcon2(this)" id="UserIcon" onclick="ShowUserPopup()"></i></a>
+        </div>
 
     </Header>
 
@@ -175,7 +176,7 @@
                 <input type="submit" class="submitButton" value="Submit" onclick="">
             </form>
         </div>
-    
+
         <i class="fa-solid fa-xmark" id="xbutton" onclick="ClosePopupPinjam()"></i>
 
     </div>
@@ -226,27 +227,29 @@
             array_push($semua_ruangan, $ruangan);
         }
     }
+
     $semua_ruangan_json = json_encode($semua_ruangan);
 
-    echo "  <script>
-
-                class Ruangan {
-                        constructor(no, tipe, kapasitas, lokasi) {
-                        this.no = no;
-                        this.tipe = tipe;
-                        this.kapasitas = kapasitas;
-                        this.lokasi = lokasi;
-                    }
+    echo '<script>
+            class Ruangan {
+                constructor(no, tipe, kapasitas, lokasi) {
+                    this.no = no;
+                    this.tipe = tipe;
+                    this.kapasitas = kapasitas;
+                    this.lokasi = lokasi;
                 }
+            }
 
-                let rawRuanganData = $semua_ruangan_json;
-                let semuaRuangan = [];
-                for (let i = 0; i < rawRuanganData.length; i++) {
-                    let ruanganData = rawRuanganData[i];
-                    let ruangan = new Ruangan(ruanganData.number, ruanganData.type, ruanganData.capacity, ruanganData.location);
-                    semuaRuangan.push(ruangan);
-                }
-            </script>";
+            let rawRuanganData = ' . $semua_ruangan_json . ';
+            let semuaRuangan = [];
+            for (let i = 0; i < rawRuanganData.length; i++) {
+                let ruanganData = rawRuanganData[i];
+                let ruangan = new Ruangan(ruanganData.no, ruanganData.tipe, ruanganData.kapasitas, ruanganData.lokasi);
+                semuaRuangan.push(ruangan);
+            }
+
+            console.log(semuaRuangan);
+          </script>';
     // Close the database connection
     $conn->close();
 
