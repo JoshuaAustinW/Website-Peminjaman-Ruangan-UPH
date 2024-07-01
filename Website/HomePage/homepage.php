@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,26 +10,32 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&display=swap" rel="stylesheet">
-    
+
     <link rel="stylesheet" href="Style.css">
 
     <script src="https://kit.fontawesome.com/0020352476.js" crossorigin="anonymous"></script>
+    <script src="classruangan.js"></script>
 
 </head>
+
 <body>
 
     <script src="fungsi.js"></script>
 
-    <div id="MenuBox">e 
+    <div id="MenuBox">e
 
         <div id="MasterMenu">
 
             <a class="HyperlinkHome" href="" target="">
-                <div class="TextMaster"> <i class="fa-solid fa-house" id="iconhomemenu"></i> <h3 class="MenuText">Home</h3> </div>
+                <div class="TextMaster"> <i class="fa-solid fa-house" id="iconhomemenu"></i>
+                    <h3 class="MenuText">Home</h3>
+                </div>
             </a>
 
             <a class="HyperlinkMyReserve" href="../MyReservePage/MyReserve.php" target="">
-                <div class="TextMaster"> <h3 class="MenuText">My Reservations</h3> </div>
+                <div class="TextMaster">
+                    <h3 class="MenuText">My Reservations</h3>
+                </div>
             </a>
 
         </div>
@@ -37,8 +44,9 @@
 
     <div id="BoxList">
 
-        <a href="https://www.uph.edu/id/" target="_blank" id="uphedu"><img id="Logo" src="../res/img/UPH_LOGO_Color.png" alt="UPH Logo"></a>
-        
+        <a href="https://www.uph.edu/id/" target="_blank" id="uphedu"><img id="Logo" src="../res/img/UPH_LOGO_Color.png"
+                alt="UPH Logo"></a>
+
         <select id="SelectBuilding">
             <option value="All">All</option>
             <option value="Lippo">Lippo Campus</option>
@@ -46,17 +54,18 @@
         </select>
 
     </div>
-    
-<Header>
 
-    <div id="BoxTitle">
+    <Header>
+
+        <div id="BoxTitle">
             <i class="fa-solid fa-bars" onclick="ShowMenu(this)" id="menubar"></i>
             <div id="Title">Web Peminjaman Ruangan</div>
             <a class="homebut" href=""><i class="fa-solid fa-house" id="HomeIcon"></i></a>
-            <a class="userbut" href=""><i class="fa-solid fa-user" onmouseenter="GantiIcon(this)" onmouseleave="GantiIcon2(this)" id="UserIcon"></i></a>
-    </div>
+            <a class="userbut" href=""><i class="fa-solid fa-user" onmouseenter="GantiIcon(this)"
+                    onmouseleave="GantiIcon2(this)" id="UserIcon"></i></a>
+        </div>
 
-</Header>
+    </Header>
 
     <div id="BGimgcontainer"><img id="imgcampus" src="../res/img/campus-medan.jpeg" alt="UPH_campus.jpeg"></div>
 
@@ -73,8 +82,11 @@
         <div class="BackArrow"><i class="fa-solid fa-arrow-left Arrow" onclick="backArrow()"></i></div>
 
         <div class="ButtonRoom">
-            <div class="RoomText"><h1 align="center" id="txt0">ROOM-5XX</h1></div>
-            <div class="ImgContainer"><img id="img0" class="RoomImage" src="../res/img/CompLab.png" alt="classroom Img"></div>
+            <div class="RoomText">
+                <h1 align="center" id="txt0">ROOM-5XX</h1>
+            </div>
+            <div class="ImgContainer"><img id="img0" class="RoomImage" src="../res/img/CompLab.png" alt="classroom Img">
+            </div>
 
             <div class="WhiteBoxInRoomSelection">
                 <div class="ButtonPinjam" onclick="ButtonPinjam1()">Pinjam</div>
@@ -83,8 +95,11 @@
         </div>
 
         <div class="ButtonRoom">
-            <div class="RoomText"><h1 align="center" id="txt1">ROOM-5XX</h1></div>
-            <div class="ImgContainer"><img id="img1" class="RoomImage" src="../res/img/CompLab.png" alt="classroom Img"></div>
+            <div class="RoomText">
+                <h1 align="center" id="txt1">ROOM-5XX</h1>
+            </div>
+            <div class="ImgContainer"><img id="img1" class="RoomImage" src="../res/img/CompLab.png" alt="classroom Img">
+            </div>
 
             <div class="WhiteBoxInRoomSelection">
                 <div class="ButtonPinjam" onclick="ButtonPinjam2()">Pinjam</div>
@@ -93,8 +108,11 @@
         </div>
 
         <div class="ButtonRoom">
-            <div class="RoomText"><h1 align="center" id="txt2">ROOM-5XX</h1></div>
-            <div class="ImgContainer"><img id="img2" class="RoomImage" src="../res/img/CompLab.png" alt="classroom Img"></div>
+            <div class="RoomText">
+                <h1 align="center" id="txt2">ROOM-5XX</h1>
+            </div>
+            <div class="ImgContainer"><img id="img2" class="RoomImage" src="../res/img/CompLab.png" alt="classroom Img">
+            </div>
 
             <div class="WhiteBoxInRoomSelection">
                 <div class="ButtonPinjam" onclick="ButtonPinjam3()">Pinjam</div>
@@ -110,92 +128,109 @@
 
     <div class="PopupPinjam" id="PopupBG"></div>
 
-        <div class="FormPinjam" id="FormPinjam">
-            <div class="ButtonRoomForm">
-                <div class="RoomText"><h1 align="center" id="txtPopup">ROOM-5XX</h1></div>
-                <div class="ImgContainerForm"><img id="img2" class="RoomImageForm" src="../res/img/CompLab.png" alt="classroom Img"></div>
+    <div class="FormPinjam" id="FormPinjam">
+        <div class="ButtonRoomForm">
+            <div class="RoomText">
+                <h1 align="center" id="txtPopup">ROOM-5XX</h1>
             </div>
-
-            <div class="inputPinjam">
-                <h1 class="FormTitle">Form Peminjaman Ruangan</h1>
-                <form method="POST">
-                    <label class="labelInput" for="Room">Room Number: </label><input style="width: 15%;" type="text" class="inputRoom" name="Room" id="Room" readonly>
-                    <br><br>
-                    <label class="labelInput" for="StartTime">Start Time: </label><input type="time" class="inputTime" name="StartTime" id="StartTime" required>
-                    <br><br>
-                    <label class="labelInput" for="EndTime">End Time: </label><input type="time" class="inputTime" name="EndTime" id="EndTime" required>
-                    <br><br>    
-                    <label class="labelInput" for="inputDate">Date: </label><input type="date" class="inputDate" name="inputDate" id="inputDate" required>
-                    <br><br>
-                    <label class="labelInput" for="Description">Description: </label>
-                    <br>
-                    <textarea name="Description" id="Description" class="Description" rows="4"></textarea>
-                    <br><br>
-                    <input type="submit" class="submitButton" value="Submit" onclick="">
-                </form>
-            </div>
-
-            <i class="fa-solid fa-xmark" id="xbutton" onclick="ClosePopupPinjam()"></i>
-
+            <div class="ImgContainerForm"><img id="img2" class="RoomImageForm" src="../res/img/CompLab.png"
+                    alt="classroom Img"></div>
         </div>
 
-        <div class="FormDetails" id="FormDetails">
-            <div class="ButtonRoomForm">
-                <div class="RoomText"><h1 align="center" id="txtPopupDetails">ROOM-5XX</h1></div>
-                <div class="ImgContainerForm"><img id="img2" class="RoomImageForm" src="../res/img/CompLab.png" alt="classroom Img"></div>
-            </div>
-            
-            <div class="inputPinjam">
-                <h1 class="FormTitle">Detail Ruangan</h1>
+        <div class="inputPinjam">
+            <h1 class="FormTitle">Form Peminjaman Ruangan</h1>
+            <form method="POST">
+                <label class="labelInput" for="Room">Room Number: </label><input style="width: 15%;" type="text"
+                    class="inputRoom" name="Room" id="Room" readonly>
+                <br><br>
+                <label class="labelInput" for="StartTime">Start Time: </label><input type="time" class="inputTime"
+                    name="StartTime" id="StartTime" required>
+                <br><br>
+                <label class="labelInput" for="EndTime">End Time: </label><input type="time" class="inputTime"
+                    name="EndTime" id="EndTime" required>
+                <br><br>
+                <label class="labelInput" for="inputDate">Date: </label><input type="date" class="inputDate"
+                    name="inputDate" id="inputDate" required>
+                <br><br>
+                <label class="labelInput" for="Description">Description: </label>
                 <br>
-                <label class="labelInput" id="Nomor">Nomor Ruangan: </label>
+                <textarea name="Description" id="Description" class="Description" rows="4"></textarea>
                 <br><br>
-                <label class="labelInput" id="Tipe">Tipe Ruangan: </label>
-                <br><br>
-                <label class="labelInput" id="Kapasitas">Kapasitas Ruangan: </label>
-                <br><br>
-                <label class="labelInput" id="Lokasi">Lokasi Ruangan: </label>
-            </div>
-
-            <i class="fa-solid fa-xmark" id="xbutton" onclick="ClosePopupPinjam()"></i>
-
+                <input type="submit" class="submitButton" value="Submit" onclick="">
+            </form>
         </div>
 
-<?php
-    $servername = "localhost"; 
-    $username = "root"; 
-    $password = ""; 
-    $dbname = "peminjamanruangan"; 
-    
+        <i class="fa-solid fa-xmark" id="xbutton" onclick="ClosePopupPinjam()"></i>
+
+    </div>
+
+    <div class="FormDetails" id="FormDetails">
+        <div class="ButtonRoomForm">
+            <div class="RoomText">
+                <h1 align="center" id="txtPopupDetails">ROOM-5XX</h1>
+            </div>
+            <div class="ImgContainerForm"><img id="img2" class="RoomImageForm" src="../res/img/CompLab.png"
+                    alt="classroom Img"></div>
+        </div>
+
+        <div class="inputPinjam">
+            <h1 class="FormTitle">Detail Ruangan</h1>
+            <br>
+            <label class="labelInput" id="Nomor">Nomor Ruangan: </label>
+            <br><br>
+            <label class="labelInput" id="Tipe">Tipe Ruangan: </label>
+            <br><br>
+            <label class="labelInput" id="Kapasitas">Kapasitas Ruangan: </label>
+            <br><br>
+            <label class="labelInput" id="Lokasi">Lokasi Ruangan: </label>
+        </div>
+
+        <i class="fa-solid fa-xmark" id="xbutton" onclick="ClosePopupPinjam()"></i>
+
+    </div>
+
+    <?php
+    // Database connection and fetching data
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $dbname = "peminjamanruangan";
+
     $conn = new mysqli($servername, $username, $password, $dbname);
-    
+
     if ($conn->connect_error) {
         die("Koneksi Gagal: " . $conn->connect_error);
     }
-    
-    
+
     $sql = "SELECT no, tipe, kapasitas, lokasi FROM ruangan";
     $result = $conn->query($sql);
-    
+
     if ($result->num_rows > 0) {
         $semua_ruangan = array();
-    
+
         while ($row = $result->fetch_assoc()) {
             $ruangan = new stdClass();
             $ruangan->number = $row["no"];
             $ruangan->type = $row["tipe"];
             $ruangan->capacity = $row["kapasitas"];
             $ruangan->location = $row["lokasi"];
-    
+
             $semua_ruangan[] = $ruangan;
         }
-        
+
         $semua_ruangan_json = json_encode($semua_ruangan);
 
-        echo "<script>var semuaRuangan = $semua_ruangan_json;</script>";
+        echo "<script>
+                var rawRuanganData = $semua_ruangan_json;
+                var semuaRuangan = [];
+                for (var i = 0; i < rawRuanganData.length; i++) {
+                    var ruanganData = rawRuanganData[i];
+                    var ruangan = new Ruangan(ruanganData.number, ruanganData.type, ruanganData.capacity, ruanganData.location);
+                    semuaRuangan.push(ruangan);
+                }
+              </script>";
 
     }
-
 
     $conn->close();
 
@@ -239,7 +274,8 @@
         $stmt->close();
         $conn->close();
     }
-?>
+    ?>
 
 </body>
+
 </html>
