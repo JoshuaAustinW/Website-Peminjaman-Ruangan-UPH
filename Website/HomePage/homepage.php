@@ -233,7 +233,7 @@
                 let semuaRuangan = [];
                 for (let i = 0; i < rawRuanganData.length; i++) {
                     let ruanganData = rawRuanganData[i];
-                    let ruangan = new Ruangan(ruanganData.number, ruanganData.type, ruanganData.capacity, ruanganData.location);
+                    let ruangan = new Ruangan(ruanganData.no, ruanganData.tipe, ruanganData.kapasitas, ruanganData.lokasi);
                     semuaRuangan.push(ruangan);
                 }
             </script>";
