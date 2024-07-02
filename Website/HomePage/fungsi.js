@@ -6,7 +6,7 @@ function filter() {
         filteredRuangan = semuaRuangan;
     } else {
 
-        filteredRuangan = semuaRuangan.filter(room => room.location == selectedBuilding);
+        filteredRuangan = semuaRuangan.filter(room => room.lokasi == selectedBuilding);
     }
     displayRooms();
 }
