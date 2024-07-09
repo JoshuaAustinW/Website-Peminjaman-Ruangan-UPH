@@ -160,14 +160,14 @@ if (!isset($_SESSION['user_id'])) {
                 <label class="labelInput" for="Room">Room Number: </label><input style="width: 15%;" type="text"
                     class="inputRoom" name="Room" id="Room" readonly>
                 <br><br>
-                <label class="labelInput" for="StartTime">Start Time: </label><input type="time" class="inputTime"
-                    name="StartTime" id="StartTime" required>
-                <br><br>
-                <label class="labelInput" for="EndTime">End Time: </label><input type="time" class="inputTime"
-                    name="EndTime" id="EndTime" required>
-                <br><br>
                 <label class="labelInput" for="inputDate">Date: </label><input type="date" class="inputDate"
                     name="inputDate" id="inputDate" required>
+                <br><br>
+                <label class="labelInput" for="StartTime">Start Time: </label><input type="time" class="inputTime"
+                    name="StartTime" id="StartTime" required disabled>
+                <br><br>
+                <label class="labelInput" for="EndTime">End Time: </label><input type="time" class="inputTime"
+                    name="EndTime" id="EndTime" required disabled>
                 <br><br>
                 <label class="labelInput" for="Description">Description: </label>
                 <br>
@@ -216,6 +216,19 @@ if (!isset($_SESSION['user_id'])) {
     require '../db.php';
     require 'classruangan.php';
 
+    function isOverlap($room, $date, $startTime, $endTime, $conn)
+    {
+        $sql_time = "SELECT * FROM forms WHERE ruangan = ? AND date = ? AND 
+            ((start < ? AND end > ?) OR 
+             (start < ? AND end > ?) OR 
+             (start >= ? AND end <= ?))";
+        $stmt = $conn->prepare($sql_time);
+        $stmt->bind_param("ssssssss", $room, $date, $endTime, $startTime, $endTime, $endTime, $startTime, $endTime);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->num_rows > 0;
+    }
+    
     $sql = "SELECT no, tipe, kapasitas, lokasi FROM ruangan";
     $result = $conn->query($sql);
 
@@ -268,17 +281,20 @@ if (!isset($_SESSION['user_id'])) {
         require '../db.php';
 
         $user_id = $_SESSION['user_id'];
-
-        $stmt = $conn->prepare("INSERT INTO forms (user_id, ruangan, date, start, end, status, description) VALUES (?, ?, ?, ?, ?, ?, ?)");
-        $stmt->bind_param("issssss", $user_id, $ruangan, $date, $mySQL_startTime, $mySQL_endTime, $status, $description);
-
-        if ($stmt->execute() === TRUE) {
-            echo "<script>alert('Form submitted successfully');</script>";
+        if (isOverlap($ruangan, $date, $mySQL_startTime, $mySQL_endTime, $conn)) {
+            echo "<script>alert('The selected time range overlaps with an existing reservation.');</script>";
         } else {
-            echo "<script>alert('Failed to submit form');</script>";
-        }
+            $stmt = $conn->prepare("INSERT INTO forms (user_id, ruangan, date, start, end, status, description) VALUES (?, ?, ?, ?, ?, ?, ?)");
+            $stmt->bind_param("issssss", $user_id, $ruangan, $date, $mySQL_startTime, $mySQL_endTime, $status, $description);
 
-        $stmt->close();
+            if ($stmt->execute() === TRUE) {
+                echo "<script>alert('Form submitted successfully');</script>";
+            } else {
+                echo "<script>alert('Failed to submit form');</script>";
+            }
+
+            $stmt->close();
+        }
         $conn->close();
     }
     ?>
