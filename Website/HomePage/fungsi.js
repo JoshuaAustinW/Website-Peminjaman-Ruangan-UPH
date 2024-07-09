@@ -110,6 +110,8 @@ function ButtonPinjam3(){
 function ButtonDetails1(){
     let nomorruangan = document.getElementById('txt0').innerHTML;
     let IndexRuanganTerpilih = filteredRuangan.findIndex(room => room.number === nomorruangan.replace("ROOM-",""));
+    console.log(room => room.number === nomorruangan.replace("ROOM-",""));
+    console.log("test" + filteredRuangan[IndexRuanganTerpilih]);
     let tiperuangan = filteredRuangan[IndexRuanganTerpilih].tipe;
     let kapasitasruangan = filteredRuangan[IndexRuanganTerpilih].kapasitas;
     let lokasiruangan = filteredRuangan[IndexRuanganTerpilih].lokasi;

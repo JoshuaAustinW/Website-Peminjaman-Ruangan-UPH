@@ -1,7 +1,8 @@
 <?php
 
     require '../../db.php';
-
+    require_once '../../vendor/autoload.php';
+    // $recaptcha = new \ReCaptcha\ReCaptcha($secret);
     session_start();
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
