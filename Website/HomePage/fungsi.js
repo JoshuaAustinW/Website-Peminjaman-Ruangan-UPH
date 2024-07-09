@@ -109,9 +109,7 @@ function ButtonPinjam3(){
 
 function ButtonDetails1(){
     let nomorruangan = document.getElementById('txt0').innerHTML;
-    let IndexRuanganTerpilih = filteredRuangan.findIndex(room => room.number === nomorruangan.replace("ROOM-",""));
-    console.log(room => room.number === nomorruangan.replace("ROOM-",""));
-    console.log("test" + filteredRuangan[IndexRuanganTerpilih]);
+    let IndexRuanganTerpilih = filteredRuangan.findIndex(room => room.no === nomorruangan.replace("ROOM-",""));
     let tiperuangan = filteredRuangan[IndexRuanganTerpilih].tipe;
     let kapasitasruangan = filteredRuangan[IndexRuanganTerpilih].kapasitas;
     let lokasiruangan = filteredRuangan[IndexRuanganTerpilih].lokasi;
@@ -126,7 +124,7 @@ function ButtonDetails1(){
 
 function ButtonDetails2(){
     let nomorruangan = document.getElementById('txt1').innerHTML;
-    let IndexRuanganTerpilih = filteredRuangan.findIndex(room => room.number === nomorruangan.replace("ROOM-",""));
+    let IndexRuanganTerpilih = filteredRuangan.findIndex(room => room.no === nomorruangan.replace("ROOM-",""));
     let tiperuangan = filteredRuangan[IndexRuanganTerpilih].tipe;
     let kapasitasruangan = filteredRuangan[IndexRuanganTerpilih].kapasitas;
     let lokasiruangan = filteredRuangan[IndexRuanganTerpilih].lokasi;
@@ -141,7 +139,7 @@ function ButtonDetails2(){
 
 function ButtonDetails3(){
     let nomorruangan = document.getElementById('txt2').innerHTML;
-    let IndexRuanganTerpilih = filteredRuangan.findIndex(room => room.number === nomorruangan.replace("ROOM-",""));
+    let IndexRuanganTerpilih = filteredRuangan.findIndex(room => room.no === nomorruangan.replace("ROOM-",""));
     let tiperuangan = filteredRuangan[IndexRuanganTerpilih].tipe;
     let kapasitasruangan = filteredRuangan[IndexRuanganTerpilih].kapasitas;
     let lokasiruangan = filteredRuangan[IndexRuanganTerpilih].lokasi;
