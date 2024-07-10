@@ -183,7 +183,7 @@
   ?>
 
     <div class="UserPopup hidden" id="UserPopup">
-        <div class="ButtonLogout" onclick="OpenPage('../Logout.php')">Logout</div>
+        <div class="ButtonLogout" onclick="OpenPage('../../Logout.php')">Logout</div>
     </div>
 </body>
 
