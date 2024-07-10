@@ -1,16 +1,18 @@
 <?php
 session_start();
 
-if (!isset($_SESSION['user_id'])) {
+if (!isset($_SESSION['user_id']) && $_SESSION['authority']!="admin") {
 
     if (isset($_COOKIE['remember_me'])) {
 
         $_SESSION['user_id'] = $_COOKIE['remember_me'];
         $_SESSION['username'] = $_COOKIE['username'];
         $_SESSION['email'] = $_COOKIE['email'];
+        $_SESSION['authority'] = $_COOKIE['authority'];
+
     } else {
 
-        header("Location: ../LoginRegis/Login/Login.php");
+        header("Location: ../../LoginRegis/Login/Login.php");
         exit();
     }
 }
@@ -49,9 +51,9 @@ if (!isset($_SESSION['user_id'])) {
                 </div>
             </a>
 
-            <a class="HyperlinkMyReserve" href="../MyReservePage/MyReserve.php" target="">
+            <a class="HyperlinkMyReserve" href="../AdminReservations/AdminReservations.php" target="">
                 <div class="TextMaster">
-                    <h3 class="MenuText">My Reservations</h3>
+                    <h3 class="MenuText">All Reservations</h3>
                 </div>
             </a>
 
@@ -61,7 +63,7 @@ if (!isset($_SESSION['user_id'])) {
 
     <div id="BoxList">
 
-        <a href="https://www.uph.edu/id/" target="_blank" id="uphedu"><img id="Logo" src="../res/img/UPH_LOGO_Color.png"
+        <a href="https://www.uph.edu/id/" target="_blank" id="uphedu"><img id="Logo" src="../../res/img/UPH_LOGO_Color.png"
                 alt="UPH Logo"></a>
 
         <select id="SelectBuilding">
@@ -78,13 +80,13 @@ if (!isset($_SESSION['user_id'])) {
             <i class="fa-solid fa-bars" onclick="ShowMenu(this)" id="menubar"></i>
             <div id="Title">Web Peminjaman Ruangan</div>
             <a class="homebut" href=""><i class="fa-solid fa-house" id="HomeIcon"></i></a>
-            <a class="userbut"><i class="fa-solid fa-user" onmouseenter="GantiIcon(this)"
+            <a class="userbut" ><i class="fa-solid fa-user" onmouseenter="GantiIcon(this)"
                     onmouseleave="GantiIcon2(this)" id="UserIcon" onclick="ShowUserPopup()"></i></a>
         </div>
 
     </Header>
 
-    <div id="BGimgcontainer"><img id="imgcampus" src="../res/img/campus-medan.jpeg" alt="UPH_campus.jpeg"></div>
+    <div id="BGimgcontainer"><img id="imgcampus" src="../../res/img/campus-medan.jpeg" alt="UPH_campus.jpeg"></div>
 
     <div id="BoxSearch">
 
@@ -102,7 +104,7 @@ if (!isset($_SESSION['user_id'])) {
             <div class="RoomText">
                 <h1 align="center" id="txt0">ROOM-5XX</h1>
             </div>
-            <div class="ImgContainer"><img id="img0" class="RoomImage" src="../res/img/CompLab.png" alt="classroom Img">
+            <div class="ImgContainer"><img id="img0" class="RoomImage" src="../../res/img/CompLab.png" alt="classroom Img">
             </div>
 
             <div class="WhiteBoxInRoomSelection">
@@ -115,7 +117,7 @@ if (!isset($_SESSION['user_id'])) {
             <div class="RoomText">
                 <h1 align="center" id="txt1">ROOM-5XX</h1>
             </div>
-            <div class="ImgContainer"><img id="img1" class="RoomImage" src="../res/img/CompLab.png" alt="classroom Img">
+            <div class="ImgContainer"><img id="img1" class="RoomImage" src="../../res/img/CompLab.png" alt="classroom Img">
             </div>
 
             <div class="WhiteBoxInRoomSelection">
@@ -128,7 +130,7 @@ if (!isset($_SESSION['user_id'])) {
             <div class="RoomText">
                 <h1 align="center" id="txt2">ROOM-5XX</h1>
             </div>
-            <div class="ImgContainer"><img id="img2" class="RoomImage" src="../res/img/CompLab.png" alt="classroom Img">
+            <div class="ImgContainer"><img id="img2" class="RoomImage" src="../../res/img/CompLab.png" alt="classroom Img">
             </div>
 
             <div class="WhiteBoxInRoomSelection">
@@ -150,7 +152,7 @@ if (!isset($_SESSION['user_id'])) {
             <div class="RoomText">
                 <h1 align="center" id="txtPopup">ROOM-5XX</h1>
             </div>
-            <div class="ImgContainerForm"><img id="img2" class="RoomImageForm" src="../res/img/CompLab.png"
+            <div class="ImgContainerForm"><img id="img2" class="RoomImageForm" src="../../res/img/CompLab.png"
                     alt="classroom Img"></div>
         </div>
 
@@ -186,7 +188,7 @@ if (!isset($_SESSION['user_id'])) {
             <div class="RoomText">
                 <h1 align="center" id="txtPopupDetails">ROOM-5XX</h1>
             </div>
-            <div class="ImgContainerForm"><img id="img2" class="RoomImageForm" src="../res/img/CompLab.png"
+            <div class="ImgContainerForm"><img id="img2" class="RoomImageForm" src="../../res/img/CompLab.png"
                     alt="classroom Img"></div>
         </div>
 
@@ -208,12 +210,12 @@ if (!isset($_SESSION['user_id'])) {
 
 
     <div class="UserPopup hidden" id="UserPopup">
-        <div class="ButtonLogout" onclick="OpenPage('../Logout.php')">Logout</div>
+        <div class="ButtonLogout" onclick="OpenPage('../../Logout.php')">Logout</div>
     </div>
 
     <?php
 
-    require '../db.php';
+    require '../../db.php';
     require 'classruangan.php';
 
     $sql = "SELECT no, tipe, kapasitas, lokasi FROM ruangan";
@@ -265,7 +267,7 @@ if (!isset($_SESSION['user_id'])) {
         $mySQL_startTime = $date . " " . $startTime;
         $mySQL_endTime = $date . " " . $endTime;
 
-        require '../db.php';
+        require '../../db.php';
 
         $user_id = $_SESSION['user_id'];
 

@@ -6,9 +6,10 @@ session_start();
 $username = strtolower($_SESSION['regis_username']);
 $password = password_hash($_SESSION['regis_password'], PASSWORD_DEFAULT);
 $email = strtolower($_SESSION['regis_email']);
+$authority = "user";
 
-$stmt = $conn->prepare("INSERT INTO users (username, password, email) VALUES (?, ?, ?)");
-$stmt->bind_param("sss", $username, $password, $email);
+$stmt = $conn->prepare("INSERT INTO users (username, password, email, authority) VALUES (?, ?, ?, ?)");
+$stmt->bind_param("ssss", $username, $password, $email, $authority);
 
 
 if ($stmt->execute()) {

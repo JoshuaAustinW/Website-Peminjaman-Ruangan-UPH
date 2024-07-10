@@ -26,16 +26,26 @@
                 $_SESSION['user_id'] = $row['id'];
                 $_SESSION['username'] = $row['username'];
                 $_SESSION['email'] = $row['email'];
+                $_SESSION['authority'] = $row['authority'];
 
                 if ($remember_me) {
                     setcookie('remember_me', $row['id'], time() + (86400 * 30), "/"); // 30 days
                     setcookie('username', $row['username'], time() + (86400 * 30), "/");
                     setcookie('email', $row['email'], time() + (86400 * 30), "/");
+                    setcookie('authority', $row['authority'], time() + (86400 * 30), "/");
                 }
 
-                header("Location: ../../HomePage/homepage.php"); //Change to dashboard
-                $stmt->close();
-                exit();
+
+                if($row['authority'] == "admin"){
+                    header("Location: ../../AdminPage/AdminHomePage/adminhomepage.php"); //Change to admin dashboard
+                    $stmt->close();
+                    exit();
+                }
+                else{
+                    header("Location: ../../HomePage/homepage.php"); //Change to dashboard
+                    $stmt->close();
+                    exit();
+                }
                 
             } else {
                 $_SESSION['error'] = 'Wrong Password, Please Try Again.';

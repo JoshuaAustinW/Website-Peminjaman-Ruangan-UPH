@@ -1,6 +1,6 @@
 <?php
     session_start();
-    if (!isset($_SESSION['user_id'])) {
+    if (!isset($_SESSION['user_id']) && $_SESSION['authority']!="admin") {
         
         if (isset($_COOKIE['remember_me'])) {
             
@@ -9,7 +9,7 @@
             $_SESSION['email'] = $_COOKIE['email'];
         } else {
             
-            header("Location: ../LoginRegis/Login/Login.php");
+            header("Location: ../../LoginRegis/Login/Login.php");
             exit();
         }
     }
@@ -41,7 +41,7 @@
   <div id="MenuBox">
     <div id="MasterMenu">
 
-      <a class="HyperlinkHome" href="../HomePage/homepage.php" target="">
+      <a class="HyperlinkHome" href="../AdminHomePage/adminhomepage.php" target="">
         <div class="TextMaster">
           <i class="fa-solid fa-house" id="iconhomemenu"></i>
           <h3 class="MenuText">Home</h3>
@@ -50,7 +50,7 @@
 
       <a class="HyperlinkMyReserve" href="" target="">
         <div class="TextMaster">
-          <h3 class="MenuText">My Reservations</h3>
+          <h3 class="MenuText">All Reservations</h3>
         </div>
       </a>
 
@@ -61,30 +61,36 @@
     <div id="BoxTitle">
       <i class="fa-solid fa-bars" onclick="ShowMenu(this)" id="menubar"></i>
       <div id="Title">Web Peminjaman Ruangan</div>
-      <a class="homebut" href="../HomePage/index.php"><i class="fa-solid fa-house" id="HomeIcon"></i></a>
-      <a class="userbut"><i class="fa-solid fa-user" onmouseenter="GantiIcon(this)"
-          onmouseleave="GantiIcon2(this)" id="UserIcon"></i></a>
+      <a class="homebut" href="../AdminHomePage/adminhomepage.php"><i class="fa-solid fa-house" id="HomeIcon"></i></a>
+      <a class="userbut" ><i class="fa-solid fa-user" onmouseenter="GantiIcon(this)"
+          onmouseleave="GantiIcon2(this)" id="UserIcon" onclick="ShowUserPopup()"></i></a>
     </div>
   </header>
 
+
+  <div class="comboboxReserve">
+        <select id="comboboxReserve" class="ComboBoxStatusFilter" value="all" onchange="FilterReservations()">
+            <option value="all">All</option>
+            <option value="pending">Pending</option>
+            <option value="approved">Approved</option>
+            <option value="declined">Declined</option>
+        </select>
+  </div>
+
   <div id="reserveList">
-    <div id="BlankSpace"></div>
 
     <?php
 
 
-    require '../db.php';
+    require '../../db.php';
 
 
-    $sql = "SELECT * FROM forms WHERE status IN ('pending', 'approved') AND user_id = ?";
+    $sql = "SELECT * FROM forms";
     $stmt = $conn->prepare($sql);
-
-    $user_id = $_SESSION['user_id'];
 
     if ($stmt === false) {
       die("Error preparing the statement: " . $conn->error);
     }
-    $stmt->bind_param("i", $user_id);
     $stmt->execute();
     $result = $stmt->get_result();
 
@@ -106,7 +112,7 @@
                     <div class='maincontent'>
                       <div class='ImageContainer'>
                         <div class='RoomName'>$Gedung-" . $row["ruangan"] . "</div>
-                        <div class='RoomImage'><img src='../res/img/CompLab.png' alt='' /></div>
+                        <div class='RoomImage'><img src='../../res/img/CompLab.png' alt='' /></div>
                       </div>
                       <div class='details'>
                         <span class='startTime'>Start Time : " . substr($row["start"], 11) . "</span>
@@ -114,10 +120,22 @@
                         <span class='endTime'>End Time : " . substr($row["end"], 11) . "</span>
                         <span class='status'>Status : " . $row["status"] . " </span>
                       </div>
-                      <form method='post' action=''>
-                        <input type='hidden' name='reservation_id' value='" . $row['id'] . "'>
-                        <button type='submit' class='cancel' name='cancel_reservation'>CANCEL</button>
+                      <form id='reservationForm" . $row['id'] . "' method='post' action=''>
+                        <input type='hidden' name='reservation_id' id='reservation_id" . $row['id'] . "' value='" . $row['id'] . "'>
+
+                        <label for='StatusSelection" . $row['id'] . "' class='label-set-status'>Set Status</label>
+                        <select class='comboboxStatus' name='StatusSelection' id='StatusSelection" . $row['id'] . "'>
+                            <option value='pending'>Pending</option>
+                            <option value='declined'>Declined</option>
+                            <option value='approved'>Approved</option>
+                        </select>
+                        <input type='button' class='buttonSaveStatus' id='SaveButton".$row['id']."' value='Save' onclick='EditStatus(" . $row['id'] . ")'>
+                        <div class='loader' id='loader" . $row['id'] . "'></div>
                       </form>
+
+                        <script>
+                            document.getElementById('StatusSelection" . $row['id'] . "').value = '".$row['status']."';
+                        </script>
                     </div>";
         array_push($roomname, $row["ruangan"]); //masukkan nama ruangan ke dalam array
       }
@@ -164,6 +182,9 @@
   }
   ?>
 
+    <div class="UserPopup hidden" id="UserPopup">
+        <div class="ButtonLogout" onclick="OpenPage('../Logout.php')">Logout</div>
+    </div>
 </body>
 
 </html>
