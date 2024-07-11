@@ -24,11 +24,6 @@ switch ($report) {
                 LEFT JOIN Forms f ON u.id = f.user_id
                 GROUP BY u.id, u.username";
         break;
-    case 'user_roles':
-        $sql = "SELECT authority, COUNT(*) AS user_count 
-                FROM Users 
-                GROUP BY authority";
-        break;
     case 'room_list':
         $sql = "SELECT no, tipe, kapasitas, lokasi 
                 FROM Ruangan";
@@ -57,12 +52,6 @@ switch ($report) {
         $sql = "SELECT YEAR(date) AS year, MONTH(date) AS month, COUNT(*) AS reservation_count 
                 FROM Forms 
                 GROUP BY YEAR(date), MONTH(date)";
-        break;
-    case 'user_reservation_history':
-        $user_id = $_SESSION['user_id'];
-        $sql = "SELECT f.id, f.user_id, f.ruangan, f.date, f.start, f.end, f.status, f.description 
-                FROM Forms f
-                WHERE f.user_id = $user_id";
         break;
     default:
         $sql = "";
