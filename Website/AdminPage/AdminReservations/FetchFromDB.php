@@ -58,7 +58,7 @@
             $response["message"] = $ReservationItems;
         } else{
             $NoRes = 'No Reservations';
-            $response["message"] = $NoRes; //(Optional) No Notes Message <element>
+            $response["message"] = $NoRes;
         }
 
         $conn->close();

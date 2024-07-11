@@ -1,37 +1,35 @@
 <?php
-    require '../../db.php';
-    session_start();
+require '../../db.php';
+session_start();
 
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        
-        $email = htmlspecialchars(strtolower(trim($_POST['email'])));
-        $username = htmlspecialchars(strtolower(trim($_POST['username'])));
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
+    $email = htmlspecialchars(strtolower(trim($_POST['email'])));
+    $username = htmlspecialchars(strtolower(trim($_POST['username'])));
 
-        //Parsing Data Purpose
-        $_SESSION['regis_username'] = trim($_POST['username']);
-        $_SESSION['regis_password'] = $_POST['password'];
-        $_SESSION['regis_email'] = trim($_POST['email']);
-        
-        $stmt = $conn->prepare("SELECT * FROM users WHERE username = ? OR email = ?");
-        $stmt->bind_param("ss", $username, $email);
-        $stmt->execute();
-        $result = $stmt->get_result();
+    $_SESSION['regis_username'] = trim($_POST['username']);
+    $_SESSION['regis_password'] = $_POST['password'];
+    $_SESSION['regis_email'] = trim($_POST['email']);
 
-        if ($result->num_rows > 0) {
-            $stmt->close();
+    $stmt = $conn->prepare("SELECT * FROM users WHERE username = ? OR email = ?");
+    $stmt->bind_param("ss", $username, $email);
+    $stmt->execute();
+    $result = $stmt->get_result();
 
-            $_SESSION['message'] = "username/email exists! please make a different username.";
-            echo "  <script type='text/javascript'>
+    if ($result->num_rows > 0) {
+        $stmt->close();
+
+        $_SESSION['message'] = "username/email exists! please make a different username.";
+        echo "  <script type='text/javascript'>
                         window.location.href = 'Register.php';
                     </script>";
-        } else {
+    } else {
 
-                $stmt->close();
+        $stmt->close();
 
-                $_SESSION['regis_confirmpassword'] = $_POST['confirmpassword'];
-                $_SESSION['OpenOTPCommand'] = 
-                "<script> 
+        $_SESSION['regis_confirmpassword'] = $_POST['confirmpassword'];
+        $_SESSION['OpenOTPCommand'] =
+            "<script> 
                 
                 var RegisButton = document.getElementById('RegisButton');
                 var loader = document.getElementById('loader');
@@ -43,17 +41,17 @@
                 
                 </script>";
 
-                header("Location: Register.php");
+        header("Location: Register.php");
 
-        }
-        
-    } else {
-        $alert = "Error sending data... please try again!";
-        echo "  <script type='text/javascript'>
+    }
+
+} else {
+    $alert = "Error sending data... please try again!";
+    echo "  <script type='text/javascript'>
                     alert('$alert');
                     window.location.href = 'Register.php';
                 </script>                                           ";
-    }
-    
-    
-    $conn->close();
+}
+
+
+$conn->close();

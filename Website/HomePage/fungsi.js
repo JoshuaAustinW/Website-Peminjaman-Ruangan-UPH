@@ -75,7 +75,7 @@ function ClosePopupPinjam() {
   popupmenu.style.display = "none";
   popupmenu2.style.display = "none";
   popupbg.style.display = "none";
-  
+
   let StartTime = document.getElementById("StartTime");
   let EndTime = document.getElementById("EndTime");
   StartTime.value = "";
@@ -204,7 +204,6 @@ function ShowUserPopup() {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-  // Set the minimum date for the date input field
   const dateInput = document.getElementById("inputDate");
   const today = new Date();
   const minDate = new Date(today);
@@ -212,7 +211,6 @@ document.addEventListener("DOMContentLoaded", function () {
   const minDateString = minDate.toISOString().split("T")[0];
   dateInput.setAttribute("min", minDateString);
 
-  // Validate end time is not before start time
   const form = document.querySelector("form");
   form.addEventListener("submit", function (event) {
     const startTime = document.getElementById("StartTime").value;
@@ -226,14 +224,11 @@ document.addEventListener("DOMContentLoaded", function () {
   document.getElementById("StartTime").disabled = true;
   document.getElementById("EndTime").disabled = true;
 
-  // Add event listener to inputDate
   document.getElementById("inputDate").addEventListener("change", function () {
-    // Enable StartTime and EndTime when inputDate has a value
     if (this.value) {
       document.getElementById("StartTime").disabled = false;
       document.getElementById("EndTime").disabled = false;
     } else {
-      // Disable StartTime and EndTime if inputDate is cleared
       document.getElementById("StartTime").disabled = true;
       document.getElementById("EndTime").disabled = true;
     }

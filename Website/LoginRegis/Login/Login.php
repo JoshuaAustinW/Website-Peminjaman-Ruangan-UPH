@@ -29,7 +29,6 @@ if (isset($_SESSION['user_id'])) {
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <script type="text/javascript">
         var onloadCallback = function () {
-            //alert("grecaptcha is ready!");
         };
     </script>
     <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer>
