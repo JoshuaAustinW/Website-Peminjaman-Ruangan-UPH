@@ -31,7 +31,6 @@ if (!isset($_SESSION['user_id']) && $_SESSION['authority'] != "admin") {
   <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="Style.css" />
-  <script src="AdminReportfungsi.js"></script>
   <script src="https://kit.fontawesome.com/0020352476.js" crossorigin="anonymous"></script>
 </head>
 
@@ -52,6 +51,12 @@ if (!isset($_SESSION['user_id']) && $_SESSION['authority'] != "admin") {
         <div class="TextMaster">
           <h3 class="MenuText">All Reservations</h3>
         </div>
+      </a>
+
+      <a class="HyperlinkMyReserve" href="../AdminReport/AdminReport.php" target="">
+                <div class="TextMaster">
+                    <h3 class="MenuText">Reports</h3>
+                </div>
       </a>
 
     </div>
@@ -184,8 +189,13 @@ if (!isset($_SESSION['user_id']) && $_SESSION['authority'] != "admin") {
   ?>
 
   <div class="UserPopup hidden" id="UserPopup">
-    <div class="ButtonLogout" onclick="OpenPage('../../Logout.php')">Logout</div>
-  </div>
+        <div class="ButtonLogout" onclick="OpenPage('../../Logout.php')">Logout</div>
+        <div style="font-family: 'Work Sans', sans-serif; width: 100%; text-align:left; font-weight: bold; margin-top: 5%; font-size: 20px;">
+            <?php echo 'Welcome, ' . $_SESSION['username'] . '!'; ?>
+            <br>
+            Status: Admin
+        </div>
+    </div>
 </body>
 
 </html>

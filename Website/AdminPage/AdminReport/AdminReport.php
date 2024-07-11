@@ -33,19 +33,25 @@ if (!isset($_SESSION['user_id']) && $_SESSION['authority'] != "admin") {
 
     <script src="https://kit.fontawesome.com/0020352476.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="AdminReportfungsi.js"></script>
     <script>
         $(document).ready(function () {
             $('#reportSelector').change(function () {
                 var report = $(this).val();
+                $('#reportContainer').html('<div class="loader" id="loader"></div>');
                 if (report) {
-                    $.ajax({
-                        url: 'generate_report.php',
-                        type: 'GET',
-                        data: { report: report },
-                        success: function (data) {
-                            $('#reportContainer').html(data);
-                        }
-                    });
+                    if(report != "Select"){
+                        $.ajax({
+                            url: 'generate_report.php',
+                            type: 'GET',
+                            data: { report: report },
+                            success: function (data) {
+                                $('#reportContainer').html(data);
+                            }
+                        });
+                    } else{
+                        $('#reportContainer').html('<div class="SelectReportMessage">Please select a report</div>');
+                    }
                 } else {
                     $('#reportContainer').html('');
                 }
@@ -65,9 +71,15 @@ if (!isset($_SESSION['user_id']) && $_SESSION['authority'] != "admin") {
                 </div>
             </a>
 
-            <a class="HyperlinkMyReserve" href="" target="">
+            <a class="HyperlinkMyReserve" href="../AdminReservations/AdminReservations.php" target="">
                 <div class="TextMaster">
                     <h3 class="MenuText">All Reservations</h3>
+                </div>
+            </a>
+
+            <a class="HyperlinkMyReserve" href="" target="">
+                <div class="TextMaster">
+                    <h3 class="MenuText">Reports</h3>
                 </div>
             </a>
 
@@ -85,28 +97,37 @@ if (!isset($_SESSION['user_id']) && $_SESSION['authority'] != "admin") {
         </div>
     </header>
 
-    <div class="comboboxReserve">
-        <select id="reportSelector" class="ComboBoxStatusFilter">
-            <option value="">Select a Report</option>
-            <option value="user_list">User List</option>
-            <option value="user_activity">User Activity</option>
-            <option value="user_roles">User Roles</option>
-            <option value="room_list">Room List</option>
-            <option value="room_utilization">Room Utilization</option>
-            <option value="reservation_list">Reservation List</option>
-            <option value="daily_reservations">Daily Reservations</option>
-            <option value="weekly_reservations">Weekly Reservations</option>
-            <option value="monthly_reservations">Monthly Reservations</option>
-            <option value="user_reservation_history">User Reservation History</option>
-        </select>
-    </div>
+    <div class="ReportWrapper">
+        <div class="comboboxReserve">
+            <select id="reportSelector" class="ComboBoxStatusFilter">
+                <option value="Select">Select a Report</option>
+                <option value="user_list">User List</option>
+                <option value="user_activity">User Activity</option>
+                
+                <option value="room_list">Room List</option>
+                <option value="room_utilization">Room Utilization</option>
+                <option value="reservation_list">Reservation List</option>
+                <option value="daily_reservations">Daily Reservations</option>
+                <option value="weekly_reservations">Weekly Reservations</option>
+                <option value="monthly_reservations">Monthly Reservations</option>
+    
+            </select>
+        </div>
 
-    <div id="reportContainer">
+        
+            <div id="reportContainer" class="reportContainer">
+                <div class="SelectReportMessage">Please select a report.</div>
+            </div>
 
     </div>
 
     <div class="UserPopup hidden" id="UserPopup">
         <div class="ButtonLogout" onclick="OpenPage('../../Logout.php')">Logout</div>
+        <div style="font-family: 'Work Sans', sans-serif; width: 100%; text-align:left; font-weight: bold; margin-top: 5%; font-size: 20px;">
+            <?php echo 'Welcome, ' . $_SESSION['username'] . '!'; ?>
+            <br>
+            Status: Admin
+        </div>
     </div>
 
 </body>

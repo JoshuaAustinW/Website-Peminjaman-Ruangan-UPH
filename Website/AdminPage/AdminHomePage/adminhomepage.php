@@ -57,6 +57,12 @@ if (!isset($_SESSION['user_id']) && $_SESSION['authority']!="admin") {
                 </div>
             </a>
 
+            <a class="HyperlinkMyReserve" href="../AdminReport/AdminReport.php" target="">
+                <div class="TextMaster">
+                    <h3 class="MenuText">Reports</h3>
+                </div>
+            </a>
+
         </div>
 
     </div>
@@ -211,6 +217,11 @@ if (!isset($_SESSION['user_id']) && $_SESSION['authority']!="admin") {
 
     <div class="UserPopup hidden" id="UserPopup">
         <div class="ButtonLogout" onclick="OpenPage('../../Logout.php')">Logout</div>
+        <div style="font-family: 'Work Sans', sans-serif; width: 100%; text-align:left; font-weight: bold; margin-top: 5%; font-size: 20px;">
+            <?php echo 'Welcome, ' . $_SESSION['username'] . '!'; ?>
+            <br>
+            Status: Admin
+        </div>
     </div>
 
     <?php

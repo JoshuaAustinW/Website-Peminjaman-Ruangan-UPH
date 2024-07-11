@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 $servername = "localhost"; // Your database server
 $username = "root"; // Your database username
 $password = ""; // Your database password
@@ -57,7 +59,7 @@ switch ($report) {
                 GROUP BY YEAR(date), MONTH(date)";
         break;
     case 'user_reservation_history':
-        $user_id = $_GET['user_id'];
+        $user_id = $_SESSION['user_id'];
         $sql = "SELECT f.id, f.user_id, f.ruangan, f.date, f.start, f.end, f.status, f.description 
                 FROM Forms f
                 WHERE f.user_id = $user_id";
@@ -70,7 +72,7 @@ if ($sql) {
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
-        echo "<table border='1'>";
+        echo "<table border='1' class='table-report'>";
         echo "<tr>";
         while ($fieldinfo = $result->fetch_field()) {
             echo "<th>{$fieldinfo->name}</th>";

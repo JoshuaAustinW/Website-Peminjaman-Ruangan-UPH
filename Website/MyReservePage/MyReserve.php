@@ -164,6 +164,15 @@
   }
   ?>
 
+  <div class="UserPopup hidden" id="UserPopup">
+        <div class="ButtonLogout" onclick="OpenPage('../Logout.php')">Logout</div>
+        <div style="font-family: 'Work Sans', sans-serif; width: 100%; text-align:left; font-weight: bold; margin-top: 5%; font-size: 20px;">
+            <?php echo 'Welcome, ' . $_SESSION['username'] . '!'; ?>
+            <br>
+            Status: User
+        </div>
+    </div>
+
 </body>
 
 </html>
