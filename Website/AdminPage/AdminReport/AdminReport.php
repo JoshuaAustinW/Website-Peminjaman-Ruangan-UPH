@@ -90,14 +90,12 @@ if (!isset($_SESSION['user_id']) && $_SESSION['authority'] != "admin") {
             <option value="">Select a Report</option>
             <option value="user_list">User List</option>
             <option value="user_activity">User Activity</option>
-            <option value="user_roles">User Roles</option>
             <option value="room_list">Room List</option>
             <option value="room_utilization">Room Utilization</option>
             <option value="reservation_list">Reservation List</option>
             <option value="daily_reservations">Daily Reservations</option>
             <option value="weekly_reservations">Weekly Reservations</option>
             <option value="monthly_reservations">Monthly Reservations</option>
-            <option value="user_reservation_history">User Reservation History</option>
         </select>
     </div>
 
