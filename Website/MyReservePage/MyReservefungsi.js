@@ -27,3 +27,7 @@ function ShowUserPopup() {
       popup.classList.add("hidden");
     }
   }
+
+  function OpenPage(a) {
+    window.location.href = a;
+  }
