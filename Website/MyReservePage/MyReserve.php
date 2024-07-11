@@ -63,7 +63,7 @@
       <div id="Title">Web Peminjaman Ruangan</div>
       <a class="homebut" href="../HomePage/index.php"><i class="fa-solid fa-house" id="HomeIcon"></i></a>
       <a class="userbut"><i class="fa-solid fa-user" onmouseenter="GantiIcon(this)"
-          onmouseleave="GantiIcon2(this)" id="UserIcon"></i></a>
+          onmouseleave="GantiIcon2(this)" id="UserIcon" onclick="ShowUserPopup()"></i></a>
     </div>
   </header>
 
@@ -150,9 +150,9 @@
   if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['cancel_reservation'])) {
     $reservation_id = $_POST['reservation_id'];
 
-    $conn = new mysqli($servername, $username, $password, $database);
+    require '../db.php';
 
-    $sql = "UPDATE forms SET status = 'cancelled' WHERE id = $reservation_id";
+    $sql = "DELETE FROM forms WHERE id = $reservation_id";
 
     if ($conn->query($sql) === TRUE) {
       echo "<script>alert('Reservation canceled successfully'); window.location.href = window.location.href;</script>";

@@ -493,6 +493,11 @@ body {
 
 @media only screen and (max-width: 768px) {
 
+
+    .UserPopup{
+        width: 60%;
+    }
+
     .SelectRoom {
         flex-direction: column; 
     }

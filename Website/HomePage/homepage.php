@@ -39,7 +39,7 @@ if (!isset($_SESSION['user_id'])) {
 
     <script src="fungsi.js"></script>
 
-    <div id="MenuBox">e
+    <div id="MenuBox">
 
         <div id="MasterMenu">
 

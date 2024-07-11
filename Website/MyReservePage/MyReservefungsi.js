@@ -18,3 +18,12 @@ let GantiIcon2 = function(a) {
     a.classList.remove("fa-regular");
     a.classList.add("fa-solid");
 }
+
+function ShowUserPopup() {
+    var popup = document.getElementById("UserPopup");
+    if (popup.classList.contains("hidden")) {
+      popup.classList.remove("hidden");
+    } else {
+      popup.classList.add("hidden");
+    }
+  }
