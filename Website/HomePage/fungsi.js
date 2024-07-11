@@ -1,5 +1,6 @@
 let filteredRuangan;
 var roomIndex = 0;
+
 function filter() {
   let selectedBuilding = document.getElementById("SelectBuilding").value;
   if (selectedBuilding == "All") {

@@ -219,16 +219,18 @@ if (!isset($_SESSION['user_id'])) {
     function isOverlap($room, $date, $startTime, $endTime, $conn)
     {
         $sql_time = "SELECT * FROM forms WHERE ruangan = ? AND date = ? AND 
-            ((start < ? AND end > ?) OR 
-             (start < ? AND end > ?) OR 
-             (start >= ? AND end <= ?))";
+        ((start < ? AND end > ?) OR 
+         (start BETWEEN ? AND ?) OR 
+         (end BETWEEN ? AND ?) OR
+         (? <= start AND ? >= end))";
         $stmt = $conn->prepare($sql_time);
-        $stmt->bind_param("ssssssss", $room, $date, $endTime, $startTime, $endTime, $endTime, $startTime, $endTime);
+        $stmt->bind_param("ssssssssss", $room, $date, $endTime, $startTime, $startTime, $endTime, $startTime, $endTime, $startTime, $endTime);
         $stmt->execute();
         $result = $stmt->get_result();
         return $result->num_rows > 0;
     }
-    
+
+
     $sql = "SELECT no, tipe, kapasitas, lokasi FROM ruangan";
     $result = $conn->query($sql);
 

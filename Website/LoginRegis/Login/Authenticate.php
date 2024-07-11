@@ -11,7 +11,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $remember_me = isset($_POST['remember_me']);
     $recaptcha_response = $_POST['g-recaptcha-response'];
 
-    // Verify the reCAPTCHA response
     $secret = $_ENV['RECAPTCHA_SECRET_KEY'];
     $recaptcha = new \ReCaptcha\ReCaptcha($secret);
     $resp = $recaptcha->verify($recaptcha_response, $_SERVER['REMOTE_ADDR']);

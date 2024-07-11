@@ -32,7 +32,7 @@ if (!isset($_SESSION['user_id']) && $_SESSION['authority'] != "admin") {
     <link rel="stylesheet" href="Style.css" />
 
     <script src="https://kit.fontawesome.com/0020352476.js" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script   src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script>
         $(document).ready(function () {
             $('#reportSelector').change(function () {
