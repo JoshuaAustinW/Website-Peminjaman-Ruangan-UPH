@@ -1,0 +1,460 @@
+
+.loader{
+    display: none;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.75s;
+}   
+
+.loader::after{
+    content: "";
+    width: 25px;
+    height: 25px;
+    border: 10px solid rgb(112, 112, 112);
+    border-top-color: #00a6ff;
+    border-radius: 50%;
+    animation: loading 0.75s ease infinite;
+}
+
+@keyframes loading{
+    from{
+        transform: rotate(0turn);
+    }
+    to{
+        transform: rotate(1turn);
+    }
+}
+
+
+
+body {
+    background: gray;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    margin: 0px;
+}
+
+#menubar {
+    color: white;
+    width: 50px;
+    font-size: 30px;
+    align-self:center;
+    margin-left: 10px;
+    transition: color 0.3s ease;
+}
+
+.HyperlinkHome{
+    text-decoration: none;
+    color: black;
+}
+
+.HyperlinkHome:visited{
+    color: black;
+}
+
+.HyperlinkMyReserve{
+    text-decoration: none;
+    color: black;
+}
+
+.HyperlinkMyReserve{
+    color: black;
+}
+
+.MenuText{
+    padding-left: 5px;
+}
+
+#menubar:hover {
+    color: grey;
+    cursor: pointer;
+}
+
+#Title {
+    color: whitesmoke;
+    font-size: 20px;
+    margin-left: 25px;
+    font-family: 'Work Sans', sans-serif;
+    align-self: center;
+}
+
+#BoxTitle {
+    width: 100%;
+    height: 70px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #263B71;
+    padding: 10px;
+    display: flex;
+    align-items: baseline;
+    box-shadow: -10px 0px 20px black;
+    z-index: 10;
+}
+
+#HomeIcon {
+    color: whitesmoke;
+    align-self: center;
+    position: fixed;
+    font-size: 20px;
+    right: 90px;
+    transition: color 0.3s ease;
+    text-shadow: 0px 0px 10px rgb(255, 255, 255, 0.5);
+}
+
+#HomeIcon:hover {
+    color: grey;
+    cursor: pointer;
+    text-shadow: 0px 0px 2px rgb(255, 255, 255, 0.2);
+}
+
+#UserIcon {
+    color: white;
+    align-self: center;
+    position: fixed;
+    font-size: 20px;
+    right: 45px;
+    transition: color 0.3s ease;
+    text-shadow: 0px 0px 10px rgb(255, 255, 255, 0.5);
+}
+
+#UserIcon:hover {
+    cursor: pointer;
+}
+
+#MenuBox {
+    background-color: whitesmoke;
+    height: 100%;
+    width:350px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    box-shadow: 0px 0px 20px black;
+    display: none;
+    overflow: hidden;
+    z-index: 2;
+}
+
+#MasterMenu {
+    margin-top: 25%;
+    text-align: center;
+}
+
+.TextMaster {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    background-color: whitesmoke;
+}
+
+.TextMaster:hover {
+    background-color: rgb(219, 219, 219);
+}
+
+#reserveList{
+    font-family: 'Work Sans', sans-serif;
+    position: absolute;
+    height: 70%;
+    top: 25%;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    bottom: 0;
+    margin-top: 0;
+    width: 80%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgb(198, 197, 197);
+}
+
+.comboboxReserve{
+    display: flex;
+    justify-content: end;
+    position: absolute;
+    width: 80%;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 20%;
+}
+
+.ComboBoxStatusFilter{
+    font-size: 20px;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+#BlankSpace{
+    height: 80px;
+    width: 100%;
+}
+
+.maincontent {
+  height: fit-content;
+  background-color: white;
+  border-radius: 5px;
+  margin-top: 2%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  box-shadow: 0px 0px 10px black;
+  padding-right: 5%;
+  overflow: hidden;
+}
+
+.ImageContainer{
+    width: 45%;
+    background-color: #720404;
+    margin: 3%;
+    aspect-ratio: 16 / 9;
+}
+
+.RoomName {
+    background-color: rgb(14, 159, 86);
+    color: white;
+    width: 100%;
+    height: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Sans-serif';
+    font-weight: bold;
+    font-size: 120%;
+}
+
+.RoomImage {
+    width: 100%;
+    height: 150%;
+    overflow: hidden;
+}
+
+.RoomImage img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: scale(1.2);
+}
+
+.details{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-right: 3%;
+}
+
+
+.cancel{ 
+    position: absolute;
+    color: white;
+    background-color: red;
+    border:none;
+    width: 15%;
+    font-family: 'Sans-serif';
+    font-weight: bold;
+    font-size: 20px;
+    left: 80%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+}
+.cancel:hover {
+    background-color: #720404;
+    cursor: pointer;
+}
+
+.homebut {
+    position: relative;
+    top: 40%;
+}
+
+.userbut{
+    position: relative;
+    top: 40%;
+}
+
+.label-set-status{
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.comboboxStatus{
+    width: 100%;
+    font-size: 15px;
+    padding: 3%;
+    margin-bottom: 10%;
+}
+
+.buttonSaveStatus{
+    width: 100%;
+    border-radius: 20px;
+    border: none;
+    background-color: rgb(68, 156, 68);
+    color: white;
+    font-size: 20px;
+    padding: 5%;
+    transition: transform 0.3s ease;
+}
+
+.buttonSaveStatus:hover{
+    transform: scale(1.1);
+}
+
+
+.UserPopup{
+    position: fixed;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    width: 20%;
+    height: 20%;
+    background-color: rgb(255, 255, 255);
+    border: solid;
+    border-color: rgb(198, 198, 198);
+    border-width: 10px;
+    z-index: 2;
+    top: 15%;
+    right: 1%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1%;
+    transition: all 0.3s ease;
+    visibility: visible;
+    transform: translateX(0);
+}
+
+.UserPopup.hidden{
+    visibility: hidden;
+    transform: translateX(100%);
+}
+
+
+.ButtonLogout{
+    width: 100%;
+    padding: 3%;
+    font-family: 'Work Sans', sans-serif;
+    background-color: #172b74;
+    color: white;
+    border-radius: 20px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.ButtonLogout:hover{
+    cursor: pointer;
+    background-color: #a0a0a0;
+    color: black;
+}
+
+@media only screen and (max-width: 768px) {
+
+
+    .UserPopup{
+        width: 60%;
+    }
+    
+    #Title{
+        font-size: 18px;
+        width: 30%;
+    }
+
+    #BlankSpace{
+        height: 12%;
+    }
+
+    .details{
+        font-size: 18px;
+    }
+
+    .maincontent{
+        height: fit-content;
+    }
+
+    .ImageContainer{
+        width: 60%;
+    }
+
+    .RoomName{
+        font-size: 10px;
+    }
+    
+    .cancel{
+        font-size: 10px;
+    }
+
+    #MenuBox{
+        width: 100%;
+    }
+
+    #reserveList{
+        width: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+
+@media only screen and (max-width: 280px) {
+
+    #BlankSpace{
+        height: 14%;
+    }
+
+    #HomeIcon{
+        font-size: 15px;
+        right: 17%;
+    }
+
+    #UserIcon{
+        font-size: 15px;
+        right: 6%;
+    }
+
+    #Title{
+        font-size: 14px;
+        width: 30%;
+        margin-left: 0%;
+    }
+
+    #menubar{
+        font-size: 25px;
+        padding-right: 0px;
+    }
+
+    .HyperlinkHome{
+        top:10%;
+    }
+
+    .MenuText{
+        font-size: 15px;
+    }
+
+    #iconhomemenu{
+        font-size: 10px;
+    }
+
+    #MasterMenu{
+        margin-top: 35%;
+    }
+
+    
+}
+
+@media only screen and (max-width: 984px) {
+    .RoomName{
+        font-size: 14px;
+    }
+}
+
+@media only screen and (max-width: 540px) {
+    .details{
+        font-size: 12px;
+    }
+}
+
+@media only screen and (max-width: 1024px) {
+    #reserveList{
+        width: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+

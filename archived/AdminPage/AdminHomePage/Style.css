@@ -1,0 +1,751 @@
+body {
+    background: linear-gradient(to top, whitesmoke, white);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    margin: 0px;
+}
+
+#menubar {
+    color: white;
+    width: 50px;
+    font-size: 30px;
+    align-self:center;
+    margin-left: 10px;
+    transition: color 0.3s ease;
+}
+
+.HyperlinkHome{
+    text-decoration: none;
+}
+
+.HyperlinkHome:visited{
+    color: black;
+}
+
+.HyperlinkMyReserve{
+    text-decoration: none;
+}
+
+.HyperlinkMyReserve{
+    color: black;
+}
+
+.MenuText{
+    padding-left: 5px;
+}
+
+#menubar:hover {
+    color: grey;
+    cursor: pointer;
+}
+
+#Title {
+    color: whitesmoke;
+    font-size: 20px;
+    margin-left: 25px;
+    font-family: 'Work Sans', sans-serif;
+    align-self: center;
+}
+
+#BoxTitle {
+    width: 100%;
+    height: 70px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #263B71;
+    padding: 10px;
+    display: flex;
+    align-items: baseline;
+    box-shadow: -10px 0px 20px black;
+    z-index: 10;
+}
+
+#HomeIcon {
+    color: whitesmoke;
+    align-self: center;
+    position: fixed;
+    font-size: 20px;
+    right: 90px;
+    transition: color 0.3s ease;
+    text-shadow: 0px 0px 10px rgb(255, 255, 255, 0.5);
+}
+
+#HomeIcon:hover {
+    color: grey;
+    cursor: pointer;
+    text-shadow: 0px 0px 2px rgb(255, 255, 255, 0.2);
+}
+
+#UserIcon {
+    color: white;
+    align-self: center;
+    position: fixed;
+    font-size: 20px;
+    right: 45px;
+    transition: color 0.3s ease;
+    text-shadow: 0px 0px 10px rgb(255, 255, 255, 0.5);
+}
+
+#UserIcon:hover {
+    cursor: pointer;
+}
+
+#Logo {
+    width: 150px;
+    margin-left: 2%;
+    height: auto;
+    top: 108px;
+    left: 30px;
+    position: relative;
+}
+
+#Logo:hover {
+    cursor: pointer;
+    filter: brightness(0.5)
+}
+
+#BGimgcontainer {
+    overflow: hidden;
+    width: 100%;
+    height: 200px;
+}
+
+#imgcampus {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#BoxSearch {
+    width: 100%;
+    height: 100px;
+    background-color: #263B71;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+#SelectBuilding {
+    align-self: baseline;
+    left: 78%;
+    top: 68%;
+    width: 200px;
+    height: 25px;
+    position:absolute;
+    font-family: 'Work Sans', sans-serif;
+    font-weight: bold;
+}
+
+#SelectBuilding:hover {
+    cursor: pointer;
+}
+
+#BoxList {
+    color: white;
+    width:100%;
+    height: 175px;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+}
+
+#MenuBox {
+    background-color: whitesmoke;
+    height: 100%;
+    width:350px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    box-shadow: 0px 0px 20px black;
+    display: none;
+    overflow: hidden;
+    z-index: 2;
+}
+
+#MasterMenu {
+    margin-top: 25%;
+    text-align: center;
+}
+
+.TextMaster {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    background-color: whitesmoke;
+}
+
+.TextMaster:hover {
+    background-color: rgb(219, 219, 219);
+}
+
+.RoomImage{
+    position: relative;
+    width: 250px;
+    object-fit: cover;
+    object-position: center;
+    transform: translateY(-30px);
+}
+
+.ImgContainer{
+    overflow: hidden;
+    height: 150px;
+}
+
+.ButtonRoom{
+    position: relative;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.8);
+    background-color: rgb(14, 159, 86);
+    margin: 0;
+    width: 23%;
+}
+
+.RoomText{
+    text-align: center;
+    background-color: rgb(14, 159, 86);
+    color: white;
+    margin-bottom: 0;
+    font-size: 12px;
+    padding: 15px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-family: 'Roboto Mono', monospace;
+    letter-spacing: 3px;
+}
+
+.SelectRoom{
+    position: absolute;
+    display: flex;
+    padding-left: 15%;
+    padding-right: 15%;
+    padding-top: 2%;
+    padding-bottom: 5%;
+    justify-content:space-evenly;
+    align-items: center;
+    margin-top: 3%;
+    width: 100%;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    background-color: whitesmoke;
+}
+
+
+.Arrow{
+    font-size: 52px;
+    text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+}
+
+.Arrow:hover{
+    cursor: pointer;
+    color: grey;
+}
+
+.WhiteBoxInRoomSelection{
+    display: flex;
+    background-color: white;
+    justify-content: space-evenly;
+    padding-top: 5%;
+    padding-bottom: 5%;
+}
+
+.ButtonPinjam{
+    justify-content: center;
+    display: flex;
+    position: relative;
+    background-color: navy;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    padding: 5px;
+    padding-left: 8%;
+    padding-right: 8%;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    width: 20%;
+}
+
+.ButtonPinjam:hover{
+    cursor: pointer;
+    background-color: rgb(255, 255, 255);
+    color: black;
+    text-shadow: 0px 0px 5px rgba(255, 255, 255, 0.5);
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.8)
+}
+
+.ButtonDetails{
+    justify-content: center;
+    display: flex;
+    position: relative;
+    background-color: rgb(14, 159, 86);
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    padding: 5px;
+    padding-left: 8%;
+    padding-right: 8%;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    width: 20%;
+}
+
+.ButtonDetails:hover{
+    cursor: pointer;
+    background-color: rgb(255, 255, 255);
+    color: black;
+    text-shadow: 0px 0px 5px rgba(255, 255, 255, 0.5);
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.8)
+}
+
+.homebut {
+    position: relative;
+    top: 40%;
+}
+
+.userbut {
+    position: relative;
+    top: 40%;
+}
+
+.RoomList {
+    align-content: center;
+    color: white;
+    font-size: 35px;
+    font-family: 'Work Sans', sans-serif;
+    padding-left: 8%;
+    padding-right: 8%;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    text-shadow: 0px 0px 5px rgb(255, 255, 255, 0.5);
+}
+
+.TitleList {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20%;
+    height: 100%;
+}
+
+.PopupPinjam{
+    display: none;
+    z-index: 12;
+    position: fixed;
+    background-color: rgb(0, 0, 0, 0.6);
+
+    width: 100%;
+    height: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.FormPinjam{
+    z-index: 13;
+    position: fixed;
+    display: none;
+    flex-direction: row;
+    width: 50%;
+    height: 60%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgb(255, 255, 255);
+    border-color: #cccccc;
+    border-width: 20px;
+    border-style: solid;
+    overflow: hidden;
+}
+
+.ButtonRoomForm{
+    position: relative;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.8);
+    background-color: rgb(14, 159, 86);
+    margin: 0;
+    left: 3%;
+    width: 30%;
+    height: 65%;
+    top: 50%;
+    transform: translate(15%, -50%);
+    
+}
+
+.RoomImageForm{
+    position: relative;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.ImgContainerForm{
+    overflow: hidden;
+    height: 100%;
+}
+
+.inputPinjam{
+    position: relative;
+    width: fit-content;
+    margin-left: 15%;
+    top: 50%;
+    transform: translateY(-50%);
+    height: fit-content;
+}
+
+.FormTitle{
+    font-family: 'Work Sans', sans-serif;
+    font-size: 25px;
+}
+
+.labelInput{
+    font-family: 'Work Sans', sans-serif;
+    font-size: 20px;
+}
+
+.submitButton{
+    width: 100%;
+    padding: 2%;
+}
+
+.submitButton:hover{
+   cursor: pointer;
+}
+
+.Description{
+    resize: none;
+    width: 100%;
+}
+
+#xbutton{
+    position: absolute;
+    font-size: 40px;
+    top: 0;
+    right: 0;
+    margin: 1%;
+}
+
+#xbutton:hover{
+    cursor: pointer;
+    color: rgb(255, 255, 255);
+    text-shadow: 0px 0px 5px rgb(0, 0, 0);
+}
+
+.FormDetails{
+    z-index: 13;
+    position: fixed;
+    display: none;
+    flex-direction: row;
+    width: 50%;
+    height: 60%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgb(255, 255, 255);
+    border-color: #cccccc;
+    border-width: 20px;
+    border-style: solid;
+    overflow: hidden;
+}
+
+
+.ButtonLogout:hover{
+    cursor: pointer;
+}
+
+.UserPopup{
+    position: fixed;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    width: 20%;
+    height: 20%;
+    background-color: rgb(255, 255, 255);
+    border: solid;
+    border-color: rgb(198, 198, 198);
+    border-width: 10px;
+    z-index: 2;
+    top: 15%;
+    right: 1%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1%;
+    transition: all 0.3s ease;
+    visibility: visible;
+    transform: translateX(0);
+}
+
+.UserPopup.hidden{
+    visibility: hidden;
+    transform: translateX(100%);
+}
+
+
+.ButtonLogout{
+    width: 100%;
+    padding: 3%;
+    font-family: 'Work Sans', sans-serif;
+    background-color: #172b74;
+    color: white;
+    border-radius: 20px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.ButtonLogout:hover{
+    cursor: pointer;
+    background-color: #a0a0a0;
+    color: black;
+}
+
+
+@media only screen and (max-width: 768px) {
+
+
+    .UserPopup{
+        width: 60%;
+    }
+    
+    .SelectRoom {
+        flex-direction: column; 
+    }
+
+    .BackArrow{
+        margin-top: 10%;
+    }
+    
+    .ForwardArrow{
+        margin: 10%;
+    }
+
+    .ButtonRoom{
+        margin-top: 10%;
+        width: 40%;
+    }
+
+    #MenuBox{
+        width: 100%;
+    }
+
+    #SelectBuilding{
+        left: 60%;
+        width: 33%;
+    }
+
+    .RoomList{
+        font-size: 20px;
+    }
+
+    .TitleList{
+        width: 100%;
+    }
+
+    .RoomText{
+        font-size: 10px;
+    }
+
+    #Title{
+        font-size: 18px;
+        width: 40%;
+    }
+
+    .RoomImage{
+        width: 100%;
+    }
+
+    .FormPinjam{
+        width: 90%;
+    }
+
+    .FormDetails{
+        width: 90%;
+    }
+
+    .labelInput{
+        font-size: 15px;
+    }
+
+    .FormTitle{
+        font-size: 20px;
+    }
+}
+
+@media only screen and (max-width: 540px) {
+    .ButtonRoom{
+        width: 100%;
+    }
+
+    .RoomImage{
+        width: 100%;
+    }
+
+    .FormPinjam{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .FormDetails{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .ButtonRoomForm{
+        left: 0;
+        transform: translateX(0%);
+        height: 20%;
+        width: 70%;
+        top: 10%;
+        margin-bottom: 10%;
+    }
+
+    .inputPinjam{
+        align-items: center;
+        justify-content: center;
+        top: 42%;
+        left: -8%;
+    }
+
+    .labelInput{
+        font-size: 12px;
+    }
+
+    .FormTitle{
+        font-size: 14px;
+    }
+    
+    #xbutton{
+        font-size: 30px;
+    }
+}
+
+@media only screen and (max-width: 280px) {
+
+    #HomeIcon{
+        font-size: 15px;
+        right: 17%;
+    }
+
+    #UserIcon{
+        font-size: 15px;
+        right: 6%;
+    }
+
+    #Title{
+        font-size: 14px;
+        width: 30%;
+        margin-left: 0%;
+    }
+
+    #menubar{
+        font-size: 25px;
+        padding-right: 0px;
+    }
+
+    #iconhomemenu{
+        font-size: 10px;
+    }
+
+    #MasterMenu{
+        margin-top: 35%;
+    }
+
+    #Logo{
+        left: 5%;
+        margin-left: 0%;
+        margin-top: 2%;
+        width: 40%;
+    }
+
+    .RoomText{
+        font-size: 8px;
+    }
+
+    .ButtonRoom{
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 1050px) {
+
+    .RoomText{
+        font-size: 8px;
+    }
+
+    .SelectRoom {
+        flex-direction: column; 
+    }
+
+    .ButtonRoom{
+        margin-top: 10%;
+        width: 40%;
+    }
+
+    .RoomImage{
+        width: 100%;
+    }
+
+    .ForwardArrow{
+        margin: 10%;
+    }
+
+    .FormPinjam{
+        width: 90%;
+        height: 80%;
+    }
+
+    .FormDetails{
+        width: 90%;
+        height: 80%;
+    }
+
+}
+
+@media only screen and (min-width: 1540px) {
+
+    .RoomImage{
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 650px) {
+
+    .ButtonRoom{
+        width: 100%;
+    }
+
+    .RoomImage{
+        width: 100%;
+    }
+
+    .RoomImageForm{
+        width: 100%;
+    }
+
+    #xbutton{
+        margin-top: 6%;
+        margin-right: 6%;
+    }
+
+    .FormPinjam{
+        width: 92%;
+        height: 92%;
+        border-width: 0;
+    }
+
+    .FormDetails{
+        width: 92%;
+        height: 92%;
+        border-width: 0;
+    }
+
+    
+}
+
+@media only screen and (max-width: 374px) {
+
+    .ButtonRoom{
+        width: 100%;
+    }
+
+    .RoomImage{
+        width: 100%;
+    }
+}
+

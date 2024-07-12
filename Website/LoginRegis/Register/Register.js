@@ -14,9 +14,9 @@ function checkInput() {
         errorMessages.push('Username must be more than 3 letters!');
     }
 
-    const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+    const emailPattern = /^[^\s@]+@[^\s@]*uph\.edu$/;
     if (!emailPattern.test(email)) {
-        errorMessages.push('Email is not valid.');
+        errorMessages.push('Email is not registered in uph.edu!');
     }
 
     if (password.length < 6) {
@@ -46,7 +46,6 @@ function checkInput() {
         var form = document.getElementById('formRegis');
         form.action = 'CheckDB.php';
         form.submit();
-
     }
 }
 
@@ -103,7 +102,7 @@ function GenerateOTP(){
 }
 
 function OpenOTP(){
-
+    console.log("open");
     var SubmitButton = document.getElementById('ButtonSubmit');
     var loader = document.getElementById('loaderOTP');
     var ResendButton = document.getElementById('ButtonResend');

@@ -1,0 +1,2 @@
+[12-Jul-2024 00:08:01 Asia/Jakarta] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/uped1296/public_html/AdminPage/AdminReport/generate_report.php on line 9
+[12-Jul-2024 00:08:04 Asia/Jakarta] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/uped1296/public_html/AdminPage/AdminReport/generate_report.php on line 9

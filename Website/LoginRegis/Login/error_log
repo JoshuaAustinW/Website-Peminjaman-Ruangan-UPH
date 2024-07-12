@@ -1,0 +1,63 @@
+[12-Jul-2024 00:00:08 Asia/Jakarta] PHP Fatal error:  Composer detected issues in your platform: Your Composer dependencies require a PHP version ">= 8.0.0". You are running 7.4.33. in /home/uped1296/public_html/vendor/composer/platform_check.php on line 24
+[12-Jul-2024 00:01:19 Asia/Jakarta] PHP Warning:  session_start(): Cannot start session when headers already sent in /home/uped1296/public_html/LoginRegis/Login/Authenticate.php on line 5
+[12-Jul-2024 00:01:19 Asia/Jakarta] PHP Warning:  file_get_contents(): SSL operation failed with code 1. OpenSSL Error messages:
+error:0A000126:SSL routines::unexpected eof while reading in /home/uped1296/public_html/vendor/google/recaptcha/src/ReCaptcha/RequestMethod/Post.php on line 80
+[12-Jul-2024 00:01:19 Asia/Jakarta] PHP Warning:  file_get_contents(): SSL: Success in /home/uped1296/public_html/vendor/google/recaptcha/src/ReCaptcha/RequestMethod/Post.php on line 80
+[12-Jul-2024 00:01:19 Asia/Jakarta] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/uped1296/public_html/vendor/composer/platform_check.php:1) in /home/uped1296/public_html/LoginRegis/Login/Authenticate.php on line 55
+[12-Jul-2024 00:02:19 Asia/Jakarta] PHP Warning:  file_get_contents(): SSL operation failed with code 1. OpenSSL Error messages:
+error:0A000126:SSL routines::unexpected eof while reading in /home/uped1296/public_html/vendor/google/recaptcha/src/ReCaptcha/RequestMethod/Post.php on line 80
+[12-Jul-2024 00:02:19 Asia/Jakarta] PHP Warning:  file_get_contents(): SSL: Success in /home/uped1296/public_html/vendor/google/recaptcha/src/ReCaptcha/RequestMethod/Post.php on line 80
+[12-Jul-2024 00:02:33 Asia/Jakarta] PHP Warning:  file_get_contents(): SSL operation failed with code 1. OpenSSL Error messages:
+error:0A000126:SSL routines::unexpected eof while reading in /home/uped1296/public_html/vendor/google/recaptcha/src/ReCaptcha/RequestMethod/Post.php on line 80
+[12-Jul-2024 00:02:33 Asia/Jakarta] PHP Warning:  file_get_contents(): SSL: Success in /home/uped1296/public_html/vendor/google/recaptcha/src/ReCaptcha/RequestMethod/Post.php on line 80
+[12-Jul-2024 00:02:46 Asia/Jakarta] PHP Warning:  file_get_contents(): SSL operation failed with code 1. OpenSSL Error messages:
+error:0A000126:SSL routines::unexpected eof while reading in /home/uped1296/public_html/vendor/google/recaptcha/src/ReCaptcha/RequestMethod/Post.php on line 80
+[12-Jul-2024 00:02:46 Asia/Jakarta] PHP Warning:  file_get_contents(): SSL: Success in /home/uped1296/public_html/vendor/google/recaptcha/src/ReCaptcha/RequestMethod/Post.php on line 80
+[12-Jul-2024 00:04:54 Asia/Jakarta] PHP Warning:  file_get_contents(): SSL operation failed with code 1. OpenSSL Error messages:
+error:0A000126:SSL routines::unexpected eof while reading in /home/uped1296/public_html/vendor/google/recaptcha/src/ReCaptcha/RequestMethod/Post.php on line 80
+[12-Jul-2024 00:04:54 Asia/Jakarta] PHP Warning:  file_get_contents(): SSL: Success in /home/uped1296/public_html/vendor/google/recaptcha/src/ReCaptcha/RequestMethod/Post.php on line 80
+[12-Jul-2024 00:05:14 Asia/Jakarta] PHP Warning:  file_get_contents(): SSL operation failed with code 1. OpenSSL Error messages:
+error:0A000126:SSL routines::unexpected eof while reading in /home/uped1296/public_html/vendor/google/recaptcha/src/ReCaptcha/RequestMethod/Post.php on line 80
+[12-Jul-2024 00:05:14 Asia/Jakarta] PHP Warning:  file_get_contents(): SSL: Success in /home/uped1296/public_html/vendor/google/recaptcha/src/ReCaptcha/RequestMethod/Post.php on line 80
+[12-Jul-2024 00:07:54 Asia/Jakarta] PHP Warning:  file_get_contents(): SSL operation failed with code 1. OpenSSL Error messages:
+error:0A000126:SSL routines::unexpected eof while reading in /home/uped1296/public_html/vendor/google/recaptcha/src/ReCaptcha/RequestMethod/Post.php on line 80
+[12-Jul-2024 00:07:54 Asia/Jakarta] PHP Warning:  file_get_contents(): SSL: Success in /home/uped1296/public_html/vendor/google/recaptcha/src/ReCaptcha/RequestMethod/Post.php on line 80
+[12-Jul-2024 09:18:02 Asia/Jakarta] PHP Warning:  file_get_contents(): SSL operation failed with code 1. OpenSSL Error messages:
+error:0A000126:SSL routines::unexpected eof while reading in /home/uped1296/public_html/vendor/google/recaptcha/src/ReCaptcha/RequestMethod/Post.php on line 80
+[12-Jul-2024 09:18:02 Asia/Jakarta] PHP Warning:  file_get_contents(): SSL: Success in /home/uped1296/public_html/vendor/google/recaptcha/src/ReCaptcha/RequestMethod/Post.php on line 80
+[12-Jul-2024 09:21:53 Asia/Jakarta] PHP Warning:  file_get_contents(): SSL operation failed with code 1. OpenSSL Error messages:
+error:0A000126:SSL routines::unexpected eof while reading in /home/uped1296/public_html/vendor/google/recaptcha/src/ReCaptcha/RequestMethod/Post.php on line 80
+[12-Jul-2024 09:21:53 Asia/Jakarta] PHP Warning:  file_get_contents(): SSL: Success in /home/uped1296/public_html/vendor/google/recaptcha/src/ReCaptcha/RequestMethod/Post.php on line 80
+[12-Jul-2024 09:21:58 Asia/Jakarta] PHP Warning:  file_get_contents(): SSL operation failed with code 1. OpenSSL Error messages:
+error:0A000126:SSL routines::unexpected eof while reading in /home/uped1296/public_html/vendor/google/recaptcha/src/ReCaptcha/RequestMethod/Post.php on line 80
+[12-Jul-2024 09:21:58 Asia/Jakarta] PHP Warning:  file_get_contents(): SSL: Success in /home/uped1296/public_html/vendor/google/recaptcha/src/ReCaptcha/RequestMethod/Post.php on line 80
+[12-Jul-2024 09:22:22 Asia/Jakarta] PHP Warning:  file_get_contents(): SSL operation failed with code 1. OpenSSL Error messages:
+error:0A000126:SSL routines::unexpected eof while reading in /home/uped1296/public_html/vendor/google/recaptcha/src/ReCaptcha/RequestMethod/Post.php on line 80
+[12-Jul-2024 09:22:22 Asia/Jakarta] PHP Warning:  file_get_contents(): SSL: Success in /home/uped1296/public_html/vendor/google/recaptcha/src/ReCaptcha/RequestMethod/Post.php on line 80
+[12-Jul-2024 09:38:12 Asia/Jakarta] PHP Warning:  file_get_contents(): SSL operation failed with code 1. OpenSSL Error messages:
+error:0A000126:SSL routines::unexpected eof while reading in /home/uped1296/public_html/vendor/google/recaptcha/src/ReCaptcha/RequestMethod/Post.php on line 80
+[12-Jul-2024 09:38:12 Asia/Jakarta] PHP Warning:  file_get_contents(): SSL: Success in /home/uped1296/public_html/vendor/google/recaptcha/src/ReCaptcha/RequestMethod/Post.php on line 80
+[12-Jul-2024 09:53:11 Asia/Jakarta] PHP Warning:  session_start(): Cannot start session when headers already sent in /home/uped1296/public_html/LoginRegis/Login/Login.php on line 2
+[12-Jul-2024 09:55:09 Asia/Jakarta] PHP Warning:  session_start(): Cannot start session when headers already sent in /home/uped1296/public_html/LoginRegis/Login/Login.php on line 2
+[12-Jul-2024 10:01:52 Asia/Jakarta] PHP Warning:  session_start(): Cannot start session when headers already sent in /home/uped1296/public_html/LoginRegis/Login/Login.php on line 2
+[12-Jul-2024 10:02:08 Asia/Jakarta] PHP Warning:  session_start(): Cannot start session when headers already sent in /home/uped1296/public_html/LoginRegis/Login/Login.php on line 2
+[12-Jul-2024 10:02:27 Asia/Jakarta] PHP Warning:  session_start(): Cannot start session when headers already sent in /home/uped1296/public_html/LoginRegis/Login/Login.php on line 2
+[12-Jul-2024 10:06:15 Asia/Jakarta] PHP Warning:  session_start(): Cannot start session when headers already sent in /home/uped1296/public_html/LoginRegis/Login/Login.php on line 2
+[12-Jul-2024 10:06:18 Asia/Jakarta] PHP Warning:  session_start(): Cannot start session when headers already sent in /home/uped1296/public_html/LoginRegis/Login/Login.php on line 2
+[12-Jul-2024 10:06:20 Asia/Jakarta] PHP Warning:  session_start(): Cannot start session when headers already sent in /home/uped1296/public_html/LoginRegis/Login/Login.php on line 2
+[12-Jul-2024 10:06:24 Asia/Jakarta] PHP Warning:  session_start(): Cannot start session when headers already sent in /home/uped1296/public_html/LoginRegis/Login/Login.php on line 2
+[12-Jul-2024 10:45:38 Asia/Jakarta] PHP Warning:  file_get_contents(): SSL operation failed with code 1. OpenSSL Error messages:
+error:0A000126:SSL routines::unexpected eof while reading in /home/uped1296/public_html/vendor/google/recaptcha/src/ReCaptcha/RequestMethod/Post.php on line 80
+[12-Jul-2024 10:45:38 Asia/Jakarta] PHP Warning:  file_get_contents(): SSL: Success in /home/uped1296/public_html/vendor/google/recaptcha/src/ReCaptcha/RequestMethod/Post.php on line 80
+[12-Jul-2024 10:47:31 Asia/Jakarta] PHP Warning:  file_get_contents(): SSL operation failed with code 1. OpenSSL Error messages:
+error:0A000126:SSL routines::unexpected eof while reading in /home/uped1296/public_html/vendor/google/recaptcha/src/ReCaptcha/RequestMethod/Post.php on line 80
+[12-Jul-2024 10:47:31 Asia/Jakarta] PHP Warning:  file_get_contents(): SSL: Success in /home/uped1296/public_html/vendor/google/recaptcha/src/ReCaptcha/RequestMethod/Post.php on line 80
+[12-Jul-2024 10:51:35 Asia/Jakarta] PHP Warning:  file_get_contents(): SSL operation failed with code 1. OpenSSL Error messages:
+error:0A000126:SSL routines::unexpected eof while reading in /home/uped1296/public_html/vendor/google/recaptcha/src/ReCaptcha/RequestMethod/Post.php on line 80
+[12-Jul-2024 10:51:35 Asia/Jakarta] PHP Warning:  file_get_contents(): SSL: Success in /home/uped1296/public_html/vendor/google/recaptcha/src/ReCaptcha/RequestMethod/Post.php on line 80
+[12-Jul-2024 10:51:41 Asia/Jakarta] PHP Warning:  file_get_contents(): SSL operation failed with code 1. OpenSSL Error messages:
+error:0A000126:SSL routines::unexpected eof while reading in /home/uped1296/public_html/vendor/google/recaptcha/src/ReCaptcha/RequestMethod/Post.php on line 80
+[12-Jul-2024 10:51:41 Asia/Jakarta] PHP Warning:  file_get_contents(): SSL: Success in /home/uped1296/public_html/vendor/google/recaptcha/src/ReCaptcha/RequestMethod/Post.php on line 80
+[12-Jul-2024 10:52:47 Asia/Jakarta] PHP Warning:  file_get_contents(): SSL operation failed with code 1. OpenSSL Error messages:
+error:0A000126:SSL routines::unexpected eof while reading in /home/uped1296/public_html/vendor/google/recaptcha/src/ReCaptcha/RequestMethod/Post.php on line 80
+[12-Jul-2024 10:52:47 Asia/Jakarta] PHP Warning:  file_get_contents(): SSL: Success in /home/uped1296/public_html/vendor/google/recaptcha/src/ReCaptcha/RequestMethod/Post.php on line 80

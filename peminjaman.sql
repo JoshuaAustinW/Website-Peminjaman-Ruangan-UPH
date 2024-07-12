@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 01, 2024 at 05:28 PM
+-- Generation Time: Jul 11, 2024 at 06:42 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -43,7 +43,7 @@ CREATE TABLE `forms` (
 --
 
 INSERT INTO `forms` (`id`, `user_id`, `ruangan`, `date`, `start`, `end`, `status`, `description`) VALUES
-(2, 1, 101, '2024-07-02', '2024-07-02 23:20:00', '2024-07-02 01:20:00', 'pending', 'desc');
+(2, 1, 101, '2024-07-02', '2024-07-02 23:20:00', '2024-07-02 01:20:00', 'declined', 'desc');
 
 -- --------------------------------------------------------
 
@@ -101,15 +101,17 @@ CREATE TABLE `users` (
   `id` int(11) NOT NULL,
   `username` varchar(50) NOT NULL,
   `password` varchar(255) NOT NULL,
-  `email` varchar(50) NOT NULL
+  `email` varchar(50) NOT NULL,
+  `authority` varchar(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `username`, `password`, `email`) VALUES
-(1, 'austin', '$2y$10$xhcyqxCut23j5d8ocO.4.uWtsapkSaalC9eYPvOnu6P/6nhW/eq6u', 'noturavgaustin@gmail.com');
+INSERT INTO `users` (`id`, `username`, `password`, `email`, `authority`) VALUES
+(1, 'austin', '$2y$10$xhcyqxCut23j5d8ocO.4.uWtsapkSaalC9eYPvOnu6P/6nhW/eq6u', 'noturavgaustin@gmail.com', 'admin'),
+(2, 'joshua', '$2y$10$VbRtGo5YzfUoX3JlRKTjneAHFZg.90bLbQ5TH2k34sfR384sspKBu', 'testugasjoshua@gmail.com', 'user');
 
 --
 -- Indexes for dumped tables
@@ -135,13 +137,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `forms`
 --
 ALTER TABLE `forms`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

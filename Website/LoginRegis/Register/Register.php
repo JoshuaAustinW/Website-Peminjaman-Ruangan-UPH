@@ -1,3 +1,9 @@
+<?php
+
+session_start();
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,7 +14,6 @@
 
     <link rel="stylesheet" href="../Login/Login.css">
     <link rel="stylesheet" href="Register.css">
-    <script src="../../index.js"></script>
     <script src="../Preventchars.js"></script>
     <script src="Register.js"></script>
     <script src="https://kit.fontawesome.com/0020352476.js" crossorigin="anonymous"></script>
@@ -27,13 +32,6 @@
 </head>
 
 <body>
-
-
-    <?php
-
-    session_start();
-
-    ?>
 
     <div class="wrapper">
 
@@ -144,7 +142,6 @@
 
     <?php
     if (isset($_SESSION['OpenOTPCommand'])) {
-
         echo $_SESSION['OpenOTPCommand'];
         unset($_SESSION['OpenOTPCommand']);
     }
